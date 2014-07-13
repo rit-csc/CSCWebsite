@@ -1,3 +1,4 @@
-
+# the local instance of the db
+db.sqlite3
 # all pyc files
 *.pyc
