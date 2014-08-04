@@ -5,13 +5,13 @@
 <!--LINK POLYMER STUFF HERE-->
 {% load static %}
 <script src="{% static 'components/platform/platform.js' %}"></script>
-
+<link rel='import' href="my-element.html">
 {% endblock %}
 
 {% block content %}
 {% verbatim %}
 <!--BODY HTML GOES HERE-->
-
+<my-element></my-element>
 <!--BODY HTML ENDS HERE-->
 {% endverbatim %}
 {% endblock %}
