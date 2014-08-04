@@ -15,7 +15,6 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', RedirectView.as_view(url='index.html', permanent=False)),
     # url(r'^blog/', include('blog.urls')),
-
     #url(r'^admin/', include(admin.site.urls)),
     #url(r'^helloWorld', include(admin.site.urls)),
 	
