@@ -1,0 +1,17 @@
+{% extends "csc_new/base.html" %}
+
+{% block head %}
+<title>Index Title</title>
+<!--LINK POLYMER STUFF HERE-->
+{% load static %}
+<script src="{% static 'components/platform/platform.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+{% verbatim %}
+<!--BODY HTML GOES HERE-->
+
+<!--BODY HTML ENDS HERE-->
+{% endverbatim %}
+{% endblock %}
