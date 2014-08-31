@@ -10,3 +10,8 @@ def generic(request):
 		#Nothing really should go here
 	})
 	return HttpResponse(template.render(context))
+
+def index(request):
+	return render(request, "pages/index.html")
+
+	

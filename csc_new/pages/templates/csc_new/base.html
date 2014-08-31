@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		{% block head %}{% endblock %}
+		{% load static %}
+		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
+		{% block head %}
+		{% endblock %}
 	</head>
 	<body>
-		{% block content %}{% endblock %}
+		<!-- Nav bar -->
+		<nav role="navigation">
+			<ul>
+				<li id=""><a href="/">Home</a></li>
+				<li id=""><a href="/">About</a></li>
+				<li id=""><a href="/">Contact</a></li>
+				<li id=""><a href="/">Projects</a></li>
+				<li id=""><a href="/">Calendar</a></li>
+				<li id=""><a href="/">Resources</a></li>
+			</ul>
+		</nav>
+		<!-- end nav bar -->
+		{% block content %}
+
+		{% endblock %}
 	</body>
 </html>
