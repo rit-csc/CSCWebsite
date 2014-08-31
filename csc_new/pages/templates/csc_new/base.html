@@ -2,13 +2,16 @@
 <html>
 	<head>
 		{% load static %}
+		<script src="{% static 'components/platform/platform.js' %}"></script>
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
+		<link href="/csc-navbar.html" rel="import">
+		<link rel="import" href="../polymer/polymer.html">
 		{% block head %}
 		{% endblock %}
 	</head>
 	<body>
 		<!-- Nav bar -->
-		<nav role="navigation">
+		<!--nav role="navigation">
 			<ul>
 				<li id=""><a href="/">Home</a></li>
 				<li id=""><a href="/">About</a></li>
@@ -17,10 +20,13 @@
 				<li id=""><a href="/">Calendar</a></li>
 				<li id=""><a href="/">Resources</a></li>
 			</ul>
-		</nav>
+		</nav-->
+		<csc-navbar></csc-navbar>
 		<!-- end nav bar -->
+		
 		{% block content %}
 
 		{% endblock %}
+
 	</body>
 </html>

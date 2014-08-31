@@ -1,0 +1,23 @@
+{% load static %}
+<link href="{% static 'components/core-toolbar/core-toolbar.html' %}" rel="import">
+<link href="{% static 'components/paper-button/paper-button.html' %}" rel="import">
+
+{% verbatim %}
+<polymer-element name="csc-navbar">
+	<template>
+		<core-toolbar id="csc-core-navbar">
+			<a href="/" class="csc-navbar-button"><paper-button label="Home">Home</paper-button></a>
+			<a href="/about" class="csc-navbar-button"><paper-button label="About">About</paper-button></a>
+			<a href="/contact" class="csc-navbar-button"><paper-button label="Contact">Contact</paper-button></a>
+			<a href="/projects" class="csc-navbar-button"><paper-button label="Projects">Projects</paper-button></a>
+			<a href="/calendar" class="csc-navbar-button"><paper-button label="Calendar">Calendar</paper-button></a>
+			<a href="/resources" class="csc-navbar-button"><paper-button label="Resources">Resources</paper-button></a>
+		</core-toolbar>
+	</template>
+	<script>
+		Polymer('csc-navbar', {
+		  
+		});
+	</script>
+</polymer-element>
+{% endverbatim %}
