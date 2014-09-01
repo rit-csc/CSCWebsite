@@ -1,0 +1,42 @@
+
+{% extends "csc_new/base.html" %}
+
+{% block head %}
+<title>About us</title>
+<style>
+	.bio_text {
+		float:left;
+		width:800px;
+	}
+	.bio_img {
+		float:left;
+		width:200px;
+	}
+	.bio_img img {
+		width:200px;
+	}
+</style>
+{% endblock %}
+
+{% block title %}
+About us
+{% endblock %}
+
+{% block desc %}
+Mission Statement and Bios
+{% endblock %}
+
+{% block content %}
+<h2>Mission Statement</h2>
+<p> The purpose of this organization is to serve as a community for learning, support, friendship, social activity, and mentorship for students at the Rochester Institute of Technology with interests in computer science.</p>
+
+<div class="bio">
+<div class="bio_text">
+<h2>Dakota Williams</h2>
+<p>Some text about me</p>
+</div>
+<div class="bio_img">
+<img src="http://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png">
+</div>
+</div>
+{% endblock %}

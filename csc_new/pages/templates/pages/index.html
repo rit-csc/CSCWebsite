@@ -22,9 +22,14 @@ Description
 <!-- Actual Content -->
 <div>
 	<div style="float:left; width:570px; background-color:#00bb00; padding:15px;">
-		<p> Events </p>
-		{% load webdesign %}
-		{% lorem 5 %}
+		<h2> Events </h2>
+		{% for event in events %}
+			<div class="event">
+				<h3>{{ event.summary }}</h3>
+				<p> Date: {{ event.start_date.date }} Time: {{ event.start_date.time }} </p>
+				<p> {{ event.desc }} </p>
+			</div>
+		{% endfor %}
 	</div>
 	<div style="float:left; width:370px; background-color:#00bbbb; padding:15px;">
 		<p>Social Media</p>
