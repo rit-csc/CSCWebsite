@@ -13,15 +13,17 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', RedirectView.as_view(url='index.html', permanent=False)),
+    #url(r'^$', RedirectView.as_view(url='index.html', permanent=False)),
+	url(r'^$', views.index),
     # url(r'^blog/', include('blog.urls')),
-    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin', include(admin.site.urls)),
     #url(r'^helloWorld', include(admin.site.urls)),
 	
 	#Custom stuff GOES HERE
 	
-	url(r'^.*$', views.generic),
-	#Custom stuff DOES NOT GO HERE
+	
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
+
+urlpatterns += [url(r'^.*', views.generic)]

@@ -6,6 +6,10 @@ from datetime import datetime
 import urllib.request, urllib.error, urllib.parse
 
 # Create your models here.
+class ExamReview(models.Model):
+	title = models.CharField(max_length=100)
+	questions = models.FileField(upload_to="exam_reviews/")
+	answers = models.FileField(upload_to="exam_reviews/")
 
 class RenderableEvent:
 	def __init__(self, summ, sdate, edate, d):

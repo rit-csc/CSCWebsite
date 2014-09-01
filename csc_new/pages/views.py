@@ -7,7 +7,7 @@ from pages.models import RenderableEvents
 # Create your views here.
 
 def generic(request):
-	template = loader.get_template("pages%s" % request.path)
+	template = loader.get_template("pages%s.html" % request.path)
 	context = RequestContext(request, {
 		#Nothing really should go here
 	})
@@ -15,7 +15,7 @@ def generic(request):
 
 def index(request):
 	RenderableEvents.getEvents()
-	template = loader.get_template("pages%s" % request.path)
+	template = loader.get_template("pages/index.html")
 	context = RequestContext(request, {
 		'events' : RenderableEvents.events,
 	})
