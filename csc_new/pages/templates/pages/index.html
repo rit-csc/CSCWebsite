@@ -4,6 +4,14 @@
 <title>Index Title</title>
 {% endblock %}
 
+{% block title %}
+Title
+{% endblock %}
+
+{% block desc %}
+Description
+{% endblock %}
+
 {% block content %}
 <!--BODY HTML GOES HERE-->
 <!-- Carousel -->
@@ -13,10 +21,6 @@
 
 <!-- Actual Content -->
 <div>
-	<div style="background-color:#bbbb00; padding:5px;">
-		<p>Title</p>
-		<p>Description</p>
-	</div>
 	<div style="float:left; width:570px; background-color:#00bb00; padding:15px;">
 		<p> Events </p>
 		{% load webdesign %}

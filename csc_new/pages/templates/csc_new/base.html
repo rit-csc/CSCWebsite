@@ -18,6 +18,11 @@
 			<!-- Nav bar -->
 			<csc-navbar></csc-navbar>
 			
+			<div style="background-color:#bbbb00; padding:5px;">
+				<p>{% block title %}{% endblock %}</p>
+				<p>{% block desc %}{% endblock %}</p>
+			</div>
+			
 			<!-- Content -->
 			<div>
 				{% block content %}
