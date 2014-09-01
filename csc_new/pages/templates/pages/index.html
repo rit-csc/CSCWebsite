@@ -14,6 +14,18 @@ Description
 
 {% block content %}
 <!--BODY HTML GOES HERE-->
+
+<!-- Include the JavaScript SDK once on the page,
+	ideally right after the opening <body> tag. -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- Carousel -->
 <div style="height:300px; background-color:#444444;">
 	<p> image carousel to be </p>
@@ -33,7 +45,13 @@ Description
 	</div>
 	<div style="float:left; width:370px; background-color:#00bbbb; padding:15px;">
 		<p>Social Media</p>
+
+		<!-- FACEBOOK FEED -->
+		<div style="margin-left:10px;background-color:#ffffff" class="fb-like-box" data-href="https://www.facebook.com/RitComputerScienceCommunity" data-width="350" data-height="300" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
+
+		<div style="padding:15px"></div>
 		
+		<!-- TWITTER FEED -->
 		<div id="twitterfeed" style="margin-left:10px;">
 			<a class="twitter-timeline" data-dnt="true" width="350" height="300" href="https://twitter.com/RIT_CSC"  data-widget-id="506265446694133760">Tweets by @RIT_CSC</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
