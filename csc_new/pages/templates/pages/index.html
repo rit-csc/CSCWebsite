@@ -2,15 +2,34 @@
 
 {% block head %}
 <title>Index Title</title>
-
 {% endblock %}
 
 {% block content %}
-{% verbatim %}
 <!--BODY HTML GOES HERE-->
+<!-- Carousel -->
+<div style="height:300px; background-color:#444444;">
+	<p> image carousel to be </p>
+</div>
 
-<h1>this is the index</h1>
-
+<!-- Actual Content -->
+<div>
+	<div style="background-color:#bbbb00; padding:5px;">
+		<p>Title</p>
+		<p>Description</p>
+	</div>
+	<div style="float:left; width:570px; background-color:#00bb00; padding:15px;">
+		<p> Events </p>
+		{% load webdesign %}
+		{% lorem 5 %}
+	</div>
+	<div style="float:left; width:370px; background-color:#00bbbb; padding:15px;">
+		<p>Social Media</p>
+		
+		<div id="twitterfeed" style="margin-left:10px;">
+			<a class="twitter-timeline" data-dnt="true" width="350" height="300" href="https://twitter.com/RIT_CSC"  data-widget-id="506265446694133760">Tweets by @RIT_CSC</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+	</div>
+</div>
 <!--BODY HTML ENDS HERE-->
-{% endverbatim %}
 {% endblock %}

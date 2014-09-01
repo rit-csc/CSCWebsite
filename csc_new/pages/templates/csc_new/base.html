@@ -5,28 +5,24 @@
 		<script src="{% static 'components/platform/platform.js' %}"></script>
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
 		<link href="/csc-navbar.html" rel="import">
-		<link rel="import" href="../polymer/polymer.html">
+		<link rel="import" href="{% static 'components/polymer/polymer.html' %}">
+		<link rel="import" href="{% static 'components/polymer/layout.html' %}">
 		{% block head %}
 		{% endblock %}
 	</head>
 	<body>
-		<!-- Nav bar -->
-		<!--nav role="navigation">
-			<ul>
-				<li id=""><a href="/">Home</a></li>
-				<li id=""><a href="/">About</a></li>
-				<li id=""><a href="/">Contact</a></li>
-				<li id=""><a href="/">Projects</a></li>
-				<li id=""><a href="/">Calendar</a></li>
-				<li id=""><a href="/">Resources</a></li>
-			</ul>
-		</nav-->
-		<csc-navbar></csc-navbar>
-		<!-- end nav bar -->
-		
-		{% block content %}
-
-		{% endblock %}
-
+		<div vertical layout>
+			<!--banner-->
+			<img src="{% static 'imgs/banner.png' %}" width="1000px">
+			
+			<!-- Nav bar -->
+			<csc-navbar></csc-navbar>
+			
+			<!-- Content -->
+			<div>
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
 	</body>
 </html>
