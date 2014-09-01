@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     #url(r'^helloWorld', include(admin.site.urls)),
 	
 	#Custom stuff GOES HERE
-	
+	url(r'^resources', views.resources),
 	
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

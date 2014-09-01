@@ -2,7 +2,9 @@
 {% extends "csc_new/base.html" %}
 
 {% block head %}
+{% load staticfiles %}
 <title>Resources</title>
+<link href="{% static 'components/paper-button/paper-button.html' %}" rel="import">
 {% endblock %}
 
 {% block title %}
@@ -14,5 +16,11 @@ Knowledge is power.
 {% endblock %}
 
 {% block content %}
-TODO: content
+{% for exam in exams %}
+	<div>
+		<h2> {{ exam.title }} </h2>
+		<a href="media/{{ exam.questions }}"><paper-button label="Questions">Questions</paper-button></a>
+		<a href="media/{{ exam.answers }}"><paper-button label="Answers">Answers</paper-button></a>
+	</div>
+{% endfor %}
 {% endblock %}
