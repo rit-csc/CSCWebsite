@@ -3,7 +3,7 @@ from django.db import models
 # dependent on icalendar package - pip install icalendar
 from icalendar import Calendar, Event, vDatetime
 from datetime import datetime
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 # Create your models here.
 
@@ -19,7 +19,7 @@ class RenderableEvents:
 
 	@classmethod
 	def getEvents(self):
-		icalFile = urllib2.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
+		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
