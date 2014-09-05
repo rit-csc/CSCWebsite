@@ -11,6 +11,9 @@ class ExamReview(models.Model):
 	questions = models.FileField(upload_to="exam_reviews/")
 	answers = models.FileField(upload_to="exam_reviews/")
 
+	def __str__(self):
+		return self.title;
+
 class RenderableEvent:
 	def __init__(self, summ, sdate, edate, d):
 		self.summary = summ

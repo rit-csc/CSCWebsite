@@ -16,11 +16,27 @@ Knowledge is power.
 {% endblock %}
 
 {% block content %}
+<h2>Exam Reviews</h2>
 {% for exam in exams %}
 	<div>
-		<h2> {{ exam.title }} </h2>
-		<a href="media/{{ exam.questions }}"><paper-button label="Questions">Questions</paper-button></a>
-		<a href="media/{{ exam.answers }}"><paper-button label="Answers">Answers</paper-button></a>
+		<div class="exam_title"> {{ exam.title }} </div>
+		<div class="exam_links">
+			<div class="exam_link">
+				<a href="media/{{ exam.questions }}">
+					Questions
+				</a>
+			</div>
+			 -- 
+			<div class="exam_link">
+				<a href="media/{{ exam.answers }}">
+					Answers
+				</a>
+			</div>
+		</div>
+	</div>
+{% empty %}
+	<div>
+		All exam reviews (along with answers) will be posted after their respective review sessions have concluded.
 	</div>
 {% endfor %}
 {% endblock %}
