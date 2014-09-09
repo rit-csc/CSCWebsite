@@ -33,15 +33,24 @@ def resources(request):
 
 def projects(request):
 	template = "pages/projects.html"
-	# Create anonymous (unauthenticated) GitHub session.
-	anon = GitHub()
-	# Fetch the "rit-csc" organization.
-	ourOrg = anon.organization(login="rit-csc")
-	# Iterate over all of our repositories and generate the dictionary
-	# of info to be passed to the template.
-	repos = {}
-	for r in ourOrg.iter_repos(type='public'):
-		# repos[str(r.name)] = {"description":r.description,"link_to_src":r.html_url}
-		repos[r] = r.html_url
-	return render_to_response(template, {"repos":repos})
+	try:
+		# Create anonymous (unauthenticated) GitHub session.
+		anon = GitHub()
+		# Fetch the "rit-csc" organization.
+		ourOrg = anon.organization(login="rit-csc")
+		# Iterate over all of our repositories and generate the dictionary
+		# of info to be passed to the template.
+		repos = {}
+		for r in ourOrg.iter_repos(type='public'):
+			# repos[str(r.name)] = {"description":r.description,"link_to_src":r.html_url}
+			repos[r] = r.html_url
+		if repos:
+			return render_to_response(template, {"success":True, "repos":repos})
+		else:
+			return render_to_response(template, {"success":False, "goto":"http://github.com/rit-csc"})
+	except GitHubError:
+		pass
+	finally:
+		return render_to_response(template, {"success":False, "goto":"http://github.com/rit-csc"})
+	
 	

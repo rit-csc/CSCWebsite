@@ -20,13 +20,15 @@ We do some pretty cool stuff!
 <!-- CONTENT GOES BETWEEN THESE TAGS -->
 
 
+<div style="padding:10px"></div>
 
-
-{% for repo in repos %}
-	{% repoInfo repo %}
-{% empty %}
-	<div>No repos found!</div>
-{% endfor %}
+{% if success %}
+	{% for repo in repos %}
+		{% repoInfo repo %}
+	{% endfor %}
+{% else %}
+	<div>Check out the CSC's projects on <a href="{{goto}}">GitHub</a>!</div>
+{% endif %}
 
 
 
