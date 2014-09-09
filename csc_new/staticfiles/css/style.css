@@ -11,7 +11,7 @@ body {
 }
 .bio_text {
 	float:left;
-	margin-right: 180px;
+	max-width: 850px;
 }
 .bio_img {
 	float:right;
@@ -20,6 +20,8 @@ body {
 .bio_img img {
 	max-width:100px;
 	max-height:100px;
+	/* TODO once people fill their bio's in, we can bump this number up to 50% and it'll look nice (probably) */
+	padding-top: 25%;
 }
 
 /* ----------------- FOR RESOURCES.HTML ----------------- */
