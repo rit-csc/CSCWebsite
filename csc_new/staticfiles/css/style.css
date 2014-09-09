@@ -36,6 +36,22 @@ body {
 	display: inline;
 }
 
+/* ----------------- FOR PROJECTS.HTML ----------------- */
+.github_repo {
+	text-decoration: none;
+}
+.repo_stats {
+	width:200px;
+}
+.repo_stat_right {
+	float:right;
+	width:50%;
+}
+.repo_stat_left {
+	float:left;
+	width:50%;
+}
+
 /* ----------------- FOR ...? ----------------- */
 #design_host {
     width: 100%;
