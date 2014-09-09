@@ -21,6 +21,7 @@ urlpatterns = patterns('',
 	
 	#Custom stuff GOES HERE
 	url(r'^resources', views.resources),
+	url(r'^projects', views.projects),
 	
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

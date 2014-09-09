@@ -2,7 +2,9 @@
 {% extends "csc_new/base.html" %}
 
 {% block head %}
+
 <title>Projects</title>
+
 {% endblock %}
 
 {% block title %}
@@ -14,5 +16,18 @@ We do some pretty cool stuff!
 {% endblock %}
 
 {% block content %}
-TODO: content
+
+
+
+
+{% for name,info in repos.items %}
+	<h3><a href="{{info}}">{{name}}</a></h3>
+{% empty %}
+	<div>No repos!</div>
+{% endfor %}
+
+
+
+
+
 {% endblock %}
