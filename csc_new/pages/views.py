@@ -42,19 +42,6 @@ def projects(request):
 	repos = {}
 	for r in ourOrg.iter_repos(type='public'):
 		# repos[str(r.name)] = {"description":r.description,"link_to_src":r.html_url}
-		repos[str(r.name)] = r.html_url
+		repos[r] = r.html_url
 	return render_to_response(template, {"repos":repos})
-
-
-
-# Repository attributes that may be useful at some point:
-		# r.readme() -> :class: `Contents <github3.repos.contents.Contents>`
-		# r.description -> Description of the repository
-		# r.homepage -> URL of the home page for the project (GH-PAGES)
-		# r.html_url -> URL of the project at GitHub (SRC CODE)
-		# r.language -> language property
-		# r.name -> name of the repository (i.e., "github3.py")
-		# r.stargazers -> number of users who starred the repository
-		# r.watchers -> number of users watching the repository
-		# str(r) -> the full name
 	

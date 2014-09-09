@@ -1,10 +1,11 @@
 
 {% extends "csc_new/base.html" %}
 
+<!-- We have to load the extras in order to access the inclusion tags. -->
+{% load extras %}
+
 {% block head %}
-
 <title>Projects</title>
-
 {% endblock %}
 
 {% block title %}
@@ -16,18 +17,20 @@ We do some pretty cool stuff!
 {% endblock %}
 
 {% block content %}
+<!-- CONTENT GOES BETWEEN THESE TAGS -->
 
 
 
 
-{% for name,info in repos.items %}
-	<h3><a href="{{info}}">{{name}}</a></h3>
+{% for repo in repos %}
+	{% repoInfo repo %}
 {% empty %}
-	<div>No repos!</div>
+	<div>No repos found!</div>
 {% endfor %}
 
 
 
 
 
+<!-- CONTENT GOES BETWEEN THESE TAGS -->
 {% endblock %}
