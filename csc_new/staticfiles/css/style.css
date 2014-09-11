@@ -5,6 +5,10 @@ body {
 	margin-right: auto;
 }
 
+div.space {
+	padding:15px;
+}
+
 /* ----------------- FOR ABOUT.HTML ----------------- */
 .bio {
 	/* nothing yet */
@@ -73,6 +77,10 @@ body {
 .csc-navbar-button {
 	text-decoration: none;
 	color: black;
+}
+.active {
+	text-decoration: underline;
+	color:green;
 }
 
 /* ----------------- FOR ..? ----------------- */

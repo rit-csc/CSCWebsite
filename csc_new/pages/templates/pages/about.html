@@ -1,5 +1,6 @@
 
 {% extends "csc_new/base.html" %}
+{% load static %}
 
 {% block head %}
 <title>About - RIT Computer Science Community</title>
@@ -80,7 +81,7 @@ p.half-width-centered-paragraph {
 		<p>You can call me Chris! Born May 28 '94, lived all of my waking life in New Jersey, just within walking distance of Bell Labs! I've been a part of the CSC since my first year at RIT, and I've pretty much always been our PR guy ever since... I make all the posters you see around GCCIS for the CSC. I'm minoring in economics. My language of choice is Python, though I work almost exclusively in Java, and I want to learn more about Ruby and Groovy. <code>Mac >= *nix >= Windows.</code> Mostly interested in Android development right now, but I'd ultimately be looking to do research. In other news, I'm a big anime nut, a reformed gamer, and a fan of tennis/dodgeball/volleyball respectively.</p>
 	</div>
 	<div class="bio_img">
-		<img src="../../../media/officer_pictures/ChrisSprague.jpg">
+		<img src="{% static 'imgs/officer_pictures/ChrisSprague.jpg' %}">
 	</div>
 </div>
 
