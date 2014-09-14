@@ -30,15 +30,17 @@ class RenderableEvent:
 		self.desc = d
 
 class RenderableEvents:
-	events = []
-
-	@classmethod
+	__slots__ = ('events')
+	
+	def __init__(self):
+		self.events = []
+	
 	def getEvents(self):
 		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None) > datetime.now():
-				event = RenderableEvent(thing.get('summary'), eventtime.dt.replace(tzinfo=None), thing.get('dtend').dt.replace(tzinfo=None), thing.get('description'))
-				self.events.append(thing)
+				event = RenderableEvent(thing.get('summary'), eventtime.dt.replace(tzinfo=None).strftime("%m/%d/%Y Start time: %H:%M"), thing.get('dtend').dt.replace(tzinfo=None).strftime("End time: %H:%M"), thing.get('description'))
+				self.events.append(event)
 		icalFile.close()

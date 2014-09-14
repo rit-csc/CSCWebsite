@@ -16,15 +16,15 @@ def generic(request):
 	return HttpResponse(template.render(context))
 
 def index(request):
-	RenderableEvents.getEvents()
+	re = RenderableEvents()
+	re.getEvents()
 	template = loader.get_template("pages/index.html")
 	context = RequestContext(request, {
-		'events' : RenderableEvents.events,
+		'events' : re.events,
 	})
 	return HttpResponse(template.render(context))
 	
 def resources(request):
-	RenderableEvents.getEvents()
 	template = loader.get_template("pages/resources.html")
 	context = RequestContext(request, {
 		'exams' : ExamReview.objects.all(),
