@@ -3,7 +3,7 @@ from django.utils.encoding import force_bytes
 
 # dependent on icalendar package - pip install icalendar
 from icalendar import Calendar, Event, vDatetime
-from datetime import datetime
+from datetime import datetime, timedelta
 import urllib.request, urllib.error, urllib.parse
 import os
 from csc_new import settings
@@ -38,9 +38,10 @@ class RenderableEvents:
 	def getEvents(self):
 		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
+		offset = timedelta(hours=-4)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None) > datetime.now():
-				event = RenderableEvent(thing.get('summary'), eventtime.dt.replace(tzinfo=None).strftime("%m/%d/%Y Start time: %H:%M"), thing.get('dtend').dt.replace(tzinfo=None).strftime("End time: %H:%M"), thing.get('description'))
+				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y Start time: %I:%M %p"), (thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("End time: %I:%M %p"), thing.get('description'))
 				self.events.append(event)
 		icalFile.close()
