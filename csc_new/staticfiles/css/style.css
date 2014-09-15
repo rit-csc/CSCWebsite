@@ -78,7 +78,7 @@ div.space {
 	text-decoration: none;
 	color: black;
 }
-a.active {
+.active {
 	text-decoration: underline;
 	color:green;
 }
