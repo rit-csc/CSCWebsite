@@ -1,22 +1,50 @@
 {% load static %}
 <link href="{% static 'components/core-toolbar/core-toolbar.html' %}" rel="import">
 <link href="{% static 'components/paper-button/paper-button.html' %}" rel="import">
+<script src="{% static 'js/navbar.js' %}"></script>
 
 {% verbatim %}
 <polymer-element name="csc-navbar">
 	<template>
 		<core-toolbar id="csc-core-navbar">
-			<a href="/" class="csc-navbar-button"><paper-button label="Home">Home</paper-button></a>
-			<a href="/about" class="csc-navbar-button"><paper-button label="About">About</paper-button></a>
-			<a href="/contact" class="csc-navbar-button"><paper-button label="Contact">Contact</paper-button></a>
-			<a href="/projects" class="csc-navbar-button"><paper-button label="Projects">Projects</paper-button></a>
-			<a href="/calendar" class="csc-navbar-button"><paper-button label="Calendar">Calendar</paper-button></a>
-			<a href="/resources" class="csc-navbar-button"><paper-button label="Resources">Resources</paper-button></a>
+			<a href="/" id="index">
+				<paper-button class="csc-navbar-button" label="Home">Home</paper-button>
+			</a>
+			<a href="/about" id="about">
+				<paper-button class="csc-navbar-button" label="About">About</paper-button>
+			</a>
+			<a href="/contact" id="contact">
+				<paper-button class="csc-navbar-button" label="Contact">Contact</paper-button>
+			</a>
+			<a href="/projects" id="projects">
+				<paper-button class="csc-navbar-button" label="Projects">Projects</paper-button>
+			</a>
+			<a href="/calendar" id="calendar">
+				<paper-button class="csc-navbar-button" label="Calendar">Calendar</paper-button>
+			</a>
+			<a href="/resources" id="resources">
+				<paper-button class="csc-navbar-button" label="Resources">Resources</paper-button>
+			</a>
 		</core-toolbar>
 	</template>
 	<script>
 		Polymer('csc-navbar', {
-		  
+		  ready: function(){
+		  	var menu = location.pathname;
+			if (menu == "/") {
+		    	document.getElementById("index").setAttribute("class", "active");
+			} else if (menu == "/about") {
+		    	document.getElementById("about").setAttribute("class", "active");
+			} else if (menu == "/contact") {
+		    	document.getElementById("contact").setAttribute("class", "active");
+			} else if (menu == "/projects") {
+		    	document.getElementById("projects").setAttribute("class", "active");
+			} else if (menu == "/calendar") {
+		    	document.getElementById("calendar").setAttribute("class", "active");
+			} else if (menu == "/resources") {
+		    	document.getElementById("resources").setAttribute("class", "active");
+			}
+		  }
 		});
 	</script>
 </polymer-element>
