@@ -3,8 +3,6 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 
 from pages.models import RenderableEvents, ExamReview
-from github3 import GitHub
-from github3.orgs import Organization
 
 # Create your views here.
 
@@ -67,26 +65,4 @@ def projects(request):
 			}
 
 	return render_to_response(template, {"success":True, "repos":repos})
-
-	
-	# try:
-	# 	# Create anonymous (unauthenticated) GitHub session.
-	# 	anon = GitHub()
-	# 	# Fetch the "rit-csc" organization.
-	# 	ourOrg = anon.organization(login="rit-csc")
-	# 	# Iterate over all of our repositories and generate the dictionary
-	# 	# of info to be passed to the template.
-	# 	repos = {}
-	# 	for r in ourOrg.iter_repos(type='public'):
-	# 		# repos[str(r.name)] = {"description":r.description,"link_to_src":r.html_url}
-	# 		repos[r] = r.html_url
-	# 	if repos:
-	# 		return render_to_response(template, {"success":True, "repos":repos})
-	# 	else:
-	# 		return render_to_response(template, {"success":False, "goto":"http://github.com/rit-csc"})
-	# except GitHubError:
-	# 	pass
-	# finally:
-	# 	return render_to_response(template, {"success":False, "goto":"http://github.com/rit-csc"})
-	
 	
