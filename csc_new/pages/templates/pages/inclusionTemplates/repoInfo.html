@@ -1,12 +1,13 @@
 <div class="github_repo">
-	<h3><a href="{{html_url}}">{{name}}</a></h3>
-	<!-- Fullname in format: rit-csc/<repo_name> -->
-	<!-- <div>Fullname: {{fullname}}</div> -->
-	<div>Description: {{description}}</div>
-	<div>ReadMe: {{readme}}</div>
-	<div>Language: {{language}}</div>
-	<div class="repo_stats">
-		<div class="repo_stat_left">Stargazers: {{stargazers}}</div>
-		<div class="repo_stat_right">Watchers: {{watchers}}</div>
+	<div class="repo_info">
+		<div class="repo_info_link">
+			<a href="{{html_url}}">{{name}}</a>
+		</div>
+		<div class="repo_info_language">
+			[ <i>{{language}}</i> ]
+		</div>
 	</div>
+	<div>Description: {{description}}</div>
+	<div>{{misc_info}}</div>
 </div>
+<div class="space"></div>

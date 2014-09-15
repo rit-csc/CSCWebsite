@@ -27,6 +27,16 @@ div.space {
 	/* TODO once people fill their bio's in, we can bump this number up to 50% and it'll look nice (probably) */
 	padding-top: 25%;
 }
+.our_mission {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50%;
+}
+.our_mission a {
+	text-decoration: none;
+	color: black;
+}
 
 /* ----------------- FOR RESOURCES.HTML ----------------- */
 .exam_title {
@@ -45,17 +55,24 @@ div.space {
 /* ----------------- FOR PROJECTS.HTML ----------------- */
 .github_repo {
 	text-decoration: none;
+	padding:15px;
+	/*background-color: purple;*/
+	border: 1px solid black;
 }
-.repo_stats {
-	width:200px;
+.repo_info {
+	width:300px;
 }
-.repo_stat_right {
+.repo_info_language {
 	float:right;
-	width:50%;
+	width:30%;
 }
-.repo_stat_left {
+.repo_info_link {
 	float:left;
-	width:50%;
+	width:70%;
+}
+.repo_info_link a {
+	text-decoration: underline;
+	color: black;
 }
 
 /* ----------------- FOR ...? ----------------- */
@@ -91,4 +108,9 @@ div.space {
 	background-color: rgb(255, 255, 255);
 	border-radius: 2px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.098), 0px 0px 3px rgba(0, 0, 0, 0.098);
+}
+
+.page_summary_bar {
+	background-color:#bbbb00;
+	padding:5px;
 }

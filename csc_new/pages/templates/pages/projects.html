@@ -23,7 +23,7 @@ We do some pretty cool stuff!
 <div style="padding:10px"></div>
 
 {% if success %}
-	{% for repo in repos %}
+	{% for url,repo in repos.items %}
 		{% repoInfo repo %}
 	{% endfor %}
 {% else %}

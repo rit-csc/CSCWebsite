@@ -23,14 +23,15 @@ register = template.Library()
 	#	# str(r) -> the full name
 @register.inclusion_tag('pages/inclusionTemplates/repoInfo.html')
 def repoInfo(repo):
-	return {"name":repo.name,
-			"fullname":str(repo),
-			"html_url":repo.html_url,
-			"description":repo.description,
-			"readme":repo.readme,
-			"language":repo.language,
-			"stargazers":repo.stargazers,
-			"watchers":repo.watchers}
+	fullname="rit-csc/%s" %(repo["name"])
+	return {
+			"name":repo["name"],
+			"fullname":"rit-csc/%s" %(repo["name"]),
+			"html_url":"http://github.com/%s" %(fullname),
+			"description":repo["description"],
+			"language":repo["language"],
+			"misc_info":repo["misc_info"]
+			}
 
 @register.filter
 def get_item(dictionary, key):
