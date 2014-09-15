@@ -38,8 +38,8 @@ Description
 		{% for event in events %}
 			<div class="event">
 				<h3>{{ event.summary }}</h3>
-				<p> When: {{ event.start_date }} {{ event.end_date }} </p>
-				<p> {{ event.desc }} </p>
+				<p> When: {{ event.start_date }}<BR />{{ event.start_time }}<BR />{{ event.end_time }} </p>
+				<p> <I>{{ event.desc }}</I> </p>
 			</div>
 		{% endfor %}
 	</div>

@@ -23,10 +23,11 @@ class ExamReview(models.Model):
 		super(ExamReview, self).delete(*args, **kwargs)
 
 class RenderableEvent:
-	def __init__(self, summ, sdate, edate, d):
+	def __init__(self, summ, sdate, stime, etime, d):
 		self.summary = summ
 		self.start_date = sdate
-		self.end_date = edate
+		self.start_time = stime
+		self.end_time = etime
 		self.desc = d
 
 class RenderableEvents:
@@ -42,6 +43,6 @@ class RenderableEvents:
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None) > datetime.now():
-				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y Start time: %I:%M %p"), (thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("End time: %I:%M %p"), thing.get('description'))
+				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), (eventtime.dt.replace(tzinfo=None)+offset).strftime("Start time: %I:%M %p"), (thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("End time: %I:%M %p"), thing.get('description'))
 				self.events.append(event)
 		icalFile.close()
