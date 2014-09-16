@@ -110,7 +110,30 @@ div.space {
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.098), 0px 0px 3px rgba(0, 0, 0, 0.098);
 }
 
+/* ----------- FOR ALL PAGES (BASE.HTML) ----------------- */
 .page_summary_bar {
 	background-color:#bbbb00;
 	padding:5px;
 }
+
+/* ----------------- FOR INDEX.HTML ----------------- */
+.img_carousel {
+	height: 300px;
+	background-color:#444444;
+}
+.events_container {
+	float:left;
+	width:570px;
+	background-color:#00bb00;
+	padding:15px;
+}
+.event {
+	/* nothing yet */
+}
+.social_media_container {
+	float:left;
+	width:370px;
+	background-color:#00bbbb;
+	padding:15px;
+}
+

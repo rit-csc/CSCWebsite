@@ -27,13 +27,14 @@ Description
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Carousel -->
-<div style="height:300px; background-color:#444444;">
+<div class="img_carousel">
 	<p> image carousel to be </p>
 </div>
 
 <!-- Actual Content -->
 <div>
-	<div style="float:left; width:570px; background-color:#00bb00; padding:15px;">
+
+	<div class="events_container">
 		<h2> Events </h2>
 		{% for event in events %}
 			<div class="event">
@@ -43,7 +44,8 @@ Description
 			</div>
 		{% endfor %}
 	</div>
-	<div style="float:left; width:370px; background-color:#00bbbb; padding:15px;">
+
+	<div class="social_media_container">
 		<p>Social Media</p>
 
 		<!-- FACEBOOK FEED -->
@@ -58,6 +60,7 @@ Description
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</div>
 	</div>
+	
 </div>
 
 
