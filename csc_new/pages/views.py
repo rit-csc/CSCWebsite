@@ -41,7 +41,7 @@ def projects(request):
 				"git_instructions":{
 					"name":"git_instructions",
 					"description":"An introductory tutorial for setting up and using a Git repository, developed by the CSC",
-					"language":"Html, CSS",
+					"language":"HTML, CSS",
 					"misc_info":"Misc info!"
 				},
 				"sensorship":{
