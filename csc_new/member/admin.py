@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User, Group
-from member.models import Member, MemberType, Event, EventLogin, Committee, CommitteeMember
+from member.models import Member, MemberType, Event, Committee
 
 class MemberInline(admin.StackedInline):
 	model = Member
