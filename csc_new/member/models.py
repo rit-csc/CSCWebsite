@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # TODO: EventResources needs to be implemented to replace pages.models.ExamReview
 
@@ -7,27 +8,16 @@ from django.db import models
 class MemberType(models.Model):
 	# id = models.AutoField(primary_key=True) # automatically created as long as no other primary key is defined
 	typeName = models.CharField(max_length=20)
-	# benefits and other stuff here
+	# TODO: benefits and other stuff here
+	
+	def __str__(self):
+		return self.typeName
 
 # Member - defines a member (finally!)
-#	dce - primary key that is also RIT's DCE
-#	name - the name of the member
-#	email - the email of the member
-#	type - the member type	
+#	user - holds name, username(dce), email
+#	type - the member type
 class Member(models.Model):
-	# TODO: add more (or less, I'm a source file.  I don't run the club)
-	# BASIC = 0
-	# PREMIUM = 1
-	# EBOARD = 2
-	# MEMBER_STATUS = (
-		# (BASIC, 'Basic'),
-		# (PREMIUM, 'Premium'),
-		# (EBOARD, 'E-Board'),
-	# )
-
-	dce = models.CharField(max_length=10, primary_key=True)
-	name = models.CharField(max_length=80)
-	email = models.EmailField()
+	user = models.OneToOneField(User) # covers name and email
 	type = models.ForeignKey(MemberType)
 
 	def committee_memberships(self):
@@ -50,6 +40,9 @@ class Event(models.Model):
 	# id = models.AutoField(primary_key=True) # automatically created as long as no other primary key is defined
 	eventName = models.CharField(max_length=80)
 	eventTime = models.DateTimeField()
+	
+	def __str__(self):
+		return self.eventName()
 
 	def event_logins(self):
 		return EventLogin.objects.filter(eventNo=self.pk)
