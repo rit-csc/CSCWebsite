@@ -22,6 +22,7 @@ class ExamReview(models.Model):
 		os.remove(os.path.join(settings.MEDIA_ROOT, str(self.answers)))
 		super(ExamReview, self).delete(*args, **kwargs)
 
+# RenderableEvent - holds an event
 class RenderableEvent:
 	def __init__(self, summ, sdate, stime, etime, d):
 		self.summary = summ
@@ -30,6 +31,7 @@ class RenderableEvent:
 		self.end_time = etime
 		self.desc = d
 
+# RenderableEvents - holds all events
 class RenderableEvents:
 	__slots__ = ('events')
 	
