@@ -7,10 +7,6 @@ from pages.models import *
 
 register = template.Library()
 
-
-
-
-
 # Repository attributes that may be useful at some point:
 		# r.readme() -> :class: `Contents <github3.repos.contents.Contents>`
 	#	# r.description -> Description of the repository

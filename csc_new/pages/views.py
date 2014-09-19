@@ -34,13 +34,13 @@ def projects(request):
 	repos = {
 				"csc_exam_reviews":{
 					"name":"csc_exam_reviews",
-					"description":"bleh",
+					"description":'A collection of practice exams for exams in core curriculum CS courses at RIT. /* TODO Link to Resources page here */',
 					"language":"TeX",
 					"misc_info":"Misc info!"
 				},
 				"git_instructions":{
 					"name":"git_instructions",
-					"description":"bleh",
+					"description":"An introductory tutorial for setting up and using a Git repository, developed by the CSC",
 					"language":"Html, CSS",
 					"misc_info":"Misc info!"
 				},
@@ -52,13 +52,13 @@ def projects(request):
 				},
 				"MorseCode":{
 					"name":"MorseCode",
-					"description":"bleh",
+					"description":"An Android app developed by Mike Lyman and Doug Krofcheck that makes discrete Morse Code texting available to the masses",
 					"language":"Java",
 					"misc_info":"Misc info!"
 				},
 				"CSC-Plays-Pokemon":{
 					"name":"CSC-Plays-Pokemon",
-					"description":"bleh",
+					"description":"A program to accompany Eric Falkenberg's workshop on the technical side of \"Twitch Plays Pokémon\"",
 					"language":"C++",
 					"misc_info":"Misc info!"
 				},
