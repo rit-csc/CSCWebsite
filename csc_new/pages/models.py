@@ -22,6 +22,17 @@ class ExamReview(models.Model):
 		os.remove(os.path.join(settings.MEDIA_ROOT, str(self.answers)))
 		super(ExamReview, self).delete(*args, **kwargs)
 
+class Photo(models.Model):
+	title = models.CharField(max_length=100)
+	src = models.FileField(upload_to="photos")
+
+	def __str__(self):
+		return '%s' % (self.title)
+
+	def delete(self, *args, **kwargs):
+		os.remove(os.path.join(settings.MEDIA_ROOT, str(self.src)))
+		super(Photo, self).delete(*args, **kwargs)
+
 # RenderableEvent - holds an event
 class RenderableEvent:
 	def __init__(self, summ, sdate, stime, etime, d):
