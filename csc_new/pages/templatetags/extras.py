@@ -22,7 +22,7 @@ def repoInfo(repo):
 	fullname="rit-csc/%s" %(repo["name"])
 	return {
 			"name":repo["name"],
-			"fullname":"rit-csc/%s" %(repo["name"]),
+			"fullname":"%s" %(fullname),
 			"html_url":"http://github.com/%s" %(fullname),
 			"description":repo["description"],
 			"language":repo["language"],

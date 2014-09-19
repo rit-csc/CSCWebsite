@@ -40,7 +40,7 @@ def projects(request):
 				},
 				"git_instructions":{
 					"name":"git_instructions",
-					"description":"An introductory tutorial for setting up and using a Git repository, developed by the CSC",
+					"description":"An introductory tutorial for setting up and using a Git repository, developed for the CS department by the CSC.",
 					"language":"HTML, CSS",
 					"misc_info":"Misc info!"
 				},
@@ -52,13 +52,13 @@ def projects(request):
 				},
 				"MorseCode":{
 					"name":"MorseCode",
-					"description":"An Android app developed by Mike Lyman and Doug Krofcheck that makes discrete Morse Code texting available to the masses",
+					"description":"An Android app developed by Mike Lyman and Doug Krofcheck that makes discrete Morse Code texting available to the masses.",
 					"language":"Java",
 					"misc_info":"Misc info!"
 				},
 				"CSC-Plays-Pokemon":{
 					"name":"CSC-Plays-Pokemon",
-					"description":"A program to accompany Eric Falkenberg's workshop on the technical side of \"Twitch Plays Pokémon\"",
+					"description":"A program to accompany Eric Falkenberg's workshop on the technical side of \"Twitch Plays Pokémon\".",
 					"language":"C++",
 					"misc_info":"Misc info!"
 				},
