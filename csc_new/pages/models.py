@@ -35,12 +35,18 @@ class Photo(models.Model):
 
 # RenderableEvent - holds an event
 class RenderableEvent:
-	def __init__(self, summ, sdate, stime, etime, d):
+	__slots__=('summary', 'start_date', 'start_time', 'end_time', 'desc', 'pureTime')
+
+	def __init__(self, summ, sdate, stime, etime, d, stimePure):
 		self.summary = summ
 		self.start_date = sdate
 		self.start_time = stime
 		self.end_time = etime
 		self.desc = d
+		self.pureTime = stimePure
+
+	def __str__(self):
+		return self.summary + " " + self.start_date + " "+ self.start_time + " "+ self.end_time
 
 # RenderableEvents - holds all events
 class RenderableEvents:
@@ -48,14 +54,26 @@ class RenderableEvents:
 	
 	def __init__(self):
 		self.events = []
-	
+
 	def getEvents(self):
 		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
 		offset = timedelta(hours=-4)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
-			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None) > datetime.now():
-				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), (eventtime.dt.replace(tzinfo=None)+offset).strftime("Start time: %I:%M %p"), (thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("End time: %I:%M %p"), thing.get('description'))
-				self.events.append(event)
+			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None)+offset > datetime.now():
+				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), \
+					(eventtime.dt.replace(tzinfo=None)+offset).strftime("Start time: %I:%M %p"),\
+					(thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("End time: %I:%M %p"), thing.get('description'),\
+					(eventtime.dt.replace(tzinfo=None)+offset))
+				inserted = False
+				for i in range(len(self.events)): # this appears to orders our events by date! ... backwards.
+					if self.events[i].pureTime < (eventtime.dt.replace(tzinfo=None)+offset):
+						self.events.insert(i,event)
+						inserted = True
+						break
+				if not inserted:
+					self.events.append(event)
+		self.events = self.events[::-1] # reverse the list, because it was backwards by date!
 		icalFile.close()
+
