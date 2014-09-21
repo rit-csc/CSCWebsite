@@ -2,3 +2,5 @@
 db.sqlite3
 # all pyc files
 *.pyc
+*.xcf
+
