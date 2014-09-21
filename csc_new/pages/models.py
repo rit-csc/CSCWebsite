@@ -63,8 +63,8 @@ class RenderableEvents:
 			eventtime = thing.get('dtstart')
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None)+offset > datetime.now():
 				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), \
-					(eventtime.dt.replace(tzinfo=None)+offset).strftime("Start time: %I:%M %p"),\
-					(thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("End time: %I:%M %p"), thing.get('description'),\
+					(eventtime.dt.replace(tzinfo=None)+offset).strftime("%I:%M %p"),\
+					(thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("%I:%M %p"), thing.get('description'),\
 					(eventtime.dt.replace(tzinfo=None)+offset))
 				inserted = False
 				for i in range(len(self.events)): # this appears to orders our events by date! ... backwards.

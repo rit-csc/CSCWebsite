@@ -39,8 +39,10 @@ Description
 		{% for event in events %}
 			<div class="event">
 				<h3>{{ event.summary }}</h3>
-				<p> When: {{ event.start_date }}<BR />{{ event.start_time }}<BR />{{ event.end_time }} </p>
-				<p> <I>{{ event.desc }}</I> </p>
+				<div> When: <b>{{ event.start_date }}</b></div>
+				<div> Start time: <b>{{ event.start_time }}</b></div>
+				<div> End time: <b>{{ event.end_time }}</b></div>
+				<div> <p><i>{{ event.desc }}</i></p> </div>
 			</div>
 		{% endfor %}
 	</div>
