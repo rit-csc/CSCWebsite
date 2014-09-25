@@ -36,31 +36,31 @@ def projects(request):
 					"name":"csc_exam_reviews",
 					"description":'A collection of practice exams for exams in core curriculum CS courses at RIT. /* TODO Link to Resources page here */',
 					"language":"TeX",
-					"misc_info":"Misc info!"
+					"misc_info":"TODO fill me in"
 				},
 				"git_instructions":{
 					"name":"git_instructions",
 					"description":"An introductory tutorial for setting up and using a Git repository, developed for the CS department by the CSC.",
 					"language":"HTML, CSS",
-					"misc_info":"Misc info!"
+					"misc_info":"TODO fill me in"
 				},
 				"sensorship":{
 					"name":"sensorship",
 					"description":"A simple Pong desktop game that utilizes the accelerometer data from connected Android devices.",
 					"language":"Java",
-					"misc_info":"Misc info!"
+					"misc_info":"TODO fill me in"
 				},
 				"MorseCode":{
 					"name":"MorseCode",
 					"description":"An Android app developed by Mike Lyman and Doug Krofcheck that makes discrete Morse Code texting available to the masses.",
 					"language":"Java",
-					"misc_info":"Misc info!"
+					"misc_info":"TODO fill me in"
 				},
 				"CSC-Plays-Pokemon":{
 					"name":"CSC-Plays-Pokemon",
 					"description":"A program to accompany Eric Falkenberg's workshop on the technical side of \"Twitch Plays Pokémon\".",
 					"language":"C++",
-					"misc_info":"Misc info!"
+					"misc_info":"TODO fill me in"
 				},
 			}
 
