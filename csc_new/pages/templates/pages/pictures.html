@@ -1,0 +1,31 @@
+
+{% extends "csc_new/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Pictures - RIT Computer Science Community</title>
+{% endblock %}
+
+{% block title %}
+Pictures
+{% endblock %}
+
+{% block desc %}
+Cool CSC Pictures
+{% endblock %}
+
+{% block content %}
+<table>
+	<tr>
+		<!-- TODO scale images to fit -->
+		<td><img src="{% static 'imgs/Pictures/BoardGameNightNSO14.jpg' %}" width="325px" height="275px"></td>
+		<td><img src="{% static 'imgs/Pictures/DakotaAtNSO14.jpg' %}" width="325px" height="275px"></td>
+		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="325px" height="275px"></td>
+	</tr>
+	<tr>
+		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="200px" height="200px"></td>
+		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="200px" height="200px"></td>
+		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="200px" height="200px"></td>
+	</tr>
+</table>
+{% endblock %}

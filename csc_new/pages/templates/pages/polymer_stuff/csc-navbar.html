@@ -25,6 +25,9 @@
 			<a href="/resources" >
 				<paper-button id="resources" class="csc-navbar-button" label="Resources">Resources</paper-button>
 			</a>
+			<a href="/pictures" >
+				<paper-button id="pictures" class="csc-navbar-button" label="Pictures">Pictures</paper-button>
+			</a>
 		</core-toolbar>
 	</template>
 	<script>
@@ -43,6 +46,8 @@
 				this.$.calendar.className = "active";
 			} else if (menu == "/resources") {
 				this.$.resources.className = "active";
+			} else if (menu == "/pictures") {
+				this.$.pictures.className = "active";
 			}
 		  }
 		});

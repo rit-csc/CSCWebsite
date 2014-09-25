@@ -12,6 +12,8 @@ function updateNavBar(){
     	document.getElementById("calendar").setAttribute("class", "active");
 	} else if (menu == "/resources") {
     	document.getElementById("resources").setAttribute("class", "active");
+	} else if (menu == "/pictures") {
+		document.getElementById("pictures").setAttribute("class", "active");
 	}
 }
 
