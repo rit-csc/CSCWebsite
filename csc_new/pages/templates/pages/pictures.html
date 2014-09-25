@@ -18,18 +18,22 @@ Cool CSC Pictures
 
 <h2>CSC Pictures</h2>
 Click on a picture to learn more about it! ((TODO))
-<BR></BR>
-<table>
-	<tr>
-		<!-- TODO scale images to fit -->
-		<td><img src="{% static 'imgs/Pictures/BoardGameNightNSO14.jpg' %}" width="325px" height="275px"></td>
-		<td><img src="{% static 'imgs/Pictures/DakotaAtNSO14.jpg' %}" width="325px" height="275px"></td>
-		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="325px" height="275px"></td>
-	</tr>
-	<tr>
-		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="200px" height="200px"></td>
-		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="200px" height="200px"></td>
-		<td><img src="{% static 'imgs/Pictures/DakotaUnixWorkshopNSO14.jpg' %}" width="200px" height="200px"></td>
-	</tr>
-</table>
+
+
+
+
+{% for pic in pics %}
+	<div>
+		<img src="media/{{ pic.src }}" />
+	</div>
+{% empty %}
+	<div>
+		We haven't uploaded any photos yet!
+	</div>
+{% endfor %}
+
+
+
+
+
 {% endblock %}

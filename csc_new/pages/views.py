@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 
-from pages.models import RenderableEvents, ExamReview
+from pages.models import *
 
 # Create your views here.
 
@@ -26,6 +26,13 @@ def resources(request):
 	template = loader.get_template("pages/resources.html")
 	context = RequestContext(request, {
 		'exams' : ExamReview.objects.all(),
+	})
+	return HttpResponse(template.render(context))
+
+def pictures(request):
+	template = loader.get_template("pages/pictures.html")
+	context = RequestContext(request, {
+		'pics' : Photo.objects.all(),
 	})
 	return HttpResponse(template.render(context))
 
