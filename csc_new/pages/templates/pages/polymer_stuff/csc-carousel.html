@@ -1,0 +1,52 @@
+{% load static %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<polymer-element name="csc-carousel">
+	<style>
+		.carousel-img {
+			visibility: hidden;
+		}
+		
+		.focus {
+			visibility: visible;
+		}
+		
+		.outfocus-left {
+			visibility: visible;
+		}
+		
+		.outfocus-right {
+			visibility: visible;
+		}
+	</style>
+	<template>
+		<div id="carousel">
+			<!--{% for img in img_list %}
+				<img class="carousel-img" src="{{MEDIA_URL}}photos/{{img}}">
+			{% endfor %}-->
+			<div class="carousel-img" style="background-color: #FF0000;"></div>
+			<div class="carousel-img" style="background-color: #88FF00;"></div>
+			<div class="carousel-img" style="background-color: #FFFF00;"></div>
+			<div class="carousel-img" style="background-color: #00FF00;"></div>
+			<div class="carousel-img" style="background-color: #0000FF;"></div>
+		</div>
+	</template>
+	<script>
+		Polymer("csc-carousel", {
+			ready: function() {
+				var arr = document.getElementsByClassName("carousel-img");
+				/*for(i = 0; i < arr.length(); i++) {
+					arr[i].id = "carousel-"+i;
+				}*/
+				
+				var curr = 0;
+				
+				setInterval(function() {
+					arr[curr % arr.length()].className = "focus";
+					arr[(curr+1) % arr.length()].className = "outfocus-right";
+					arr[(curr-1) % arr.length()] = "outfocus-left";
+				}, 7500);
+			}
+		});
+	</script>
+</polymer-element>
