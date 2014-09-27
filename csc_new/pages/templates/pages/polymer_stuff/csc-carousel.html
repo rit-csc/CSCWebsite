@@ -1,50 +1,101 @@
 {% load static %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 
 <polymer-element name="csc-carousel">
 	<style>
+		#carousel {
+			position: relative;
+			height: 400px;
+			width: 1000px;
+			background-color: #000000;
+		}
+		
+		#carousel div {
+			height:400px;
+			width: 600px;
+			position: absolute;
+		}
+		
+		#carousel div img {
+			position: absolute;
+			width: 600px;
+		}
+		
 		.carousel-img {
 			visibility: hidden;
+			z-index: -1;
 		}
 		
 		.focus {
 			visibility: visible;
+			left: 200px;
+			width: 600px;
+			z-index: 1;
 		}
 		
 		.outfocus-left {
 			visibility: visible;
+			left: 0px;
+			width: 200px;
+			overflow: hidden;
+			opacity: 0.5;
+			z-index: 0;
 		}
 		
 		.outfocus-right {
 			visibility: visible;
+			left: 800px;
+			width: 200px;
+			overflow: hidden;
+			opacity: 0.5;
+			z-index: 0;
 		}
 	</style>
 	<template>
 		<div id="carousel">
-			<!--{% for img in img_list %}
-				<img class="carousel-img" src="{{MEDIA_URL}}photos/{{img}}">
-			{% endfor %}-->
-			<div class="carousel-img" style="background-color: #FF0000;"></div>
-			<div class="carousel-img" style="background-color: #88FF00;"></div>
-			<div class="carousel-img" style="background-color: #FFFF00;"></div>
-			<div class="carousel-img" style="background-color: #00FF00;"></div>
-			<div class="carousel-img" style="background-color: #0000FF;"></div>
+			{% for img in img_list %}
+				<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}"/></div>
+			{% endfor %}
 		</div>
 	</template>
-	<script>
+	<script>		
 		Polymer("csc-carousel", {
 			ready: function() {
-				var arr = document.getElementsByClassName("carousel-img");
-				/*for(i = 0; i < arr.length(); i++) {
-					arr[i].id = "carousel-"+i;
-				}*/
+				var arr = this.$.carousel.getElementsByClassName("carousel-img");
 				
 				var curr = 0;
 				
-				setInterval(function() {
-					arr[curr % arr.length()].className = "focus";
-					arr[(curr+1) % arr.length()].className = "outfocus-right";
-					arr[(curr-1) % arr.length()] = "outfocus-left";
+				arr[(arr.length+curr-1) % arr.length].className = "outfocus-left"; //because js does mod SHITTILY
+				arr[curr % arr.length].className = "focus";
+				arr[(curr+1) % arr.length].className = "outfocus-right";
+				
+				curr = 2;
+				
+				setInterval(function() {					
+					$("#carousel > div").each(function(index, elem) {
+						switch ($(elem).attr('class')) {
+							case "focus":
+								$(elem).switchClass("focus", "outfocus-left");
+								break;
+							case "outfocus-left":
+								$(elem).switchClass("outfocus-left", "carousel-img");
+								break;
+							case "outfocus-right":
+								$(elem).switchClass("outfocus-right", "focus");
+								break;
+							default:
+								if(index == curr) {
+									$(elem).switchClass("carousel-img", "outfocus-right");
+								}
+						}
+						
+					});
+					curr++;
+					if(curr >= arr.length) {
+						curr = curr % arr.length
+					}
 				}, 7500);
 			}
 		});
