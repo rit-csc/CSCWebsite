@@ -23,7 +23,7 @@ Click on a picture to learn more about it! ((TODO))
 
 
 {% for pic in pics %}
-	<div>
+	<div class="pic {% cycle 'left' 'right' %}">
 		<img src="media/{{ pic.src }}" />
 	</div>
 {% empty %}
