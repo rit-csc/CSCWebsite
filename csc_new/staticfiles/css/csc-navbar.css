@@ -1,0 +1,28 @@
+
+#csc-navbar {
+	right: 0px;
+	left: 0px;
+	background-color: rgb(79, 125, 201);
+	color: rgb(255, 255, 255);
+	fill: rgb(255, 255, 255);
+	vertical-align: middle;
+	text-align: center;
+}
+
+#csc-navbar a {
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.csc-navbar-button {
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+}
+.csc-navbar-button:hover {
+	text-decoration: underline;
+	color:green;
+}

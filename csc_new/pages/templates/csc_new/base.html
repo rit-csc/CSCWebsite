@@ -2,22 +2,45 @@
 <html>
 	<head>
 		{% load static %}
-		<script src="{% static 'components/platform/platform.js' %}"></script>
+		<!--script src="{% static 'components/platform/platform.js' %}"></script[-->
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
-		<link href="polymer_stuff/csc-navbar" rel="import">
+		<link href="{% static 'css/csc-navbar.css' %}" rel="stylesheet" media="screen">
+		<!--link href="polymer_stuff/csc-navbar" rel="import">
 		<link rel="import" href="{% static 'components/polymer/polymer.html' %}">
-		<link rel="import" href="{% static 'components/polymer/layout.html' %}">
+		<link rel="import" href="{% static 'components/polymer/layout.html' %}"-->
 		<link rel="SHORTCUT ICON" href="{% static 'imgs/logo.ico' %}">
 		{% block head %}
 		{% endblock %}
 	</head>
 	<body>
-		<div vertical layout>
+		<div>
 			<!--banner-->
 			<a href="/"><img src="{% static 'imgs/banner.png' %}" width="1000px"></a>
 			
 			<!-- Nav bar -->
-			<csc-navbar></csc-navbar>
+			<div id="csc-navbar">
+				<a href="/"> <div class="csc-navbar-button">
+					Home
+				</div> </a>
+				<a href="/about"> <div class="csc-navbar-button">
+					About
+				</div> </a>
+				<a href="/contact"> <div class="csc-navbar-button">
+					Contact
+				</div> </a>
+				<a href="/projects"> <div class="csc-navbar-button">
+					Projects
+				</div> </a>
+				<a href="/calendar"> <div class="csc-navbar-button">
+					Calendar
+				</div> </a>
+				<a href="/resources"> <div class="csc-navbar-button">
+					Resources
+				</div> </a>
+				<a href="/pictures"> <div class="csc-navbar-button">
+					Pictures
+				</div> </a>
+			</div>
 			
 			<div class="page_summary_bar">
 				<p>{% block title %}{% endblock %}</p>
