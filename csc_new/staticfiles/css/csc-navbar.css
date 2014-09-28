@@ -11,16 +11,17 @@
 
 #csc-navbar a {
 	display: inline-block;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 .csc-navbar-button {
 	display: inline-block;
 	text-decoration: none;
 	color: black;
+	font-size: 125%;
 }
 .csc-navbar-button:hover {
 	text-decoration: underline;
