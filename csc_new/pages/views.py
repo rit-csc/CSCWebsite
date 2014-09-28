@@ -10,7 +10,8 @@ from csc_new import settings
 def generic(request):
 	template = loader.get_template("pages%s.html" % request.path)
 	context = RequestContext(request, {
-		#Nothing really should go here
+		'MEDIA_URL' : settings.MEDIA_URL,
+		'img_list' : Photo.objects.values_list('src', flat=True),
 	})
 	return HttpResponse(template.render(context))
 
@@ -29,6 +30,8 @@ def resources(request):
 	template = loader.get_template("pages/resources.html")
 	context = RequestContext(request, {
 		'exams' : ExamReview.objects.all(),
+		'MEDIA_URL' : settings.MEDIA_URL,
+		'img_list' : Photo.objects.values_list('src', flat=True),
 	})
 	return HttpResponse(template.render(context))
 
@@ -36,6 +39,8 @@ def pictures(request):
 	template = loader.get_template("pages/pictures.html")
 	context = RequestContext(request, {
 		'pics' : Photo.objects.all(),
+		'MEDIA_URL' : settings.MEDIA_URL,
+		'img_list' : Photo.objects.values_list('src', flat=True),
 	})
 	return HttpResponse(template.render(context))
 
@@ -74,5 +79,5 @@ def projects(request):
 				},
 			}
 
-	return render_to_response(template, {"success":True, "repos":repos})
+	return render_to_response(template, {"success":True, "repos":repos, 'MEDIA_URL' : settings.MEDIA_URL, 'img_list' : Photo.objects.values_list('src', flat=True)})
 	

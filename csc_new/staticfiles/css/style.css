@@ -99,24 +99,6 @@ div.space {
     box-sizing: border-box;
 }
 
-#csc-core-navbar {
-	right: 0px;
-	left: 0px;
-	background-color: rgb(79, 125, 201);
-	color: rgb(255, 255, 255);
-	fill: rgb(255, 255, 255);
-}
-
-/* ----------------- FOR NAV BAR ----------------- */
-.csc-navbar-button {
-	text-decoration: none;
-	color: black;
-}
-.active {
-	text-decoration: underline;
-	color:green;
-}
-
 /* ----------------- FOR ..? ----------------- */
 #csc-content {
 	position: relative;

@@ -1,0 +1,55 @@
+
+#csc-navbar {
+	right: 0px;
+	left: 0px;
+	background-color: rgb(79, 125, 201);
+	color: rgb(255, 255, 255);
+	fill: rgb(255, 255, 255);
+	vertical-align: middle;
+	text-align: center;
+}
+
+#csc-navbar a {
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.csc-navbar-button {
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+	font-size: 125%;
+}
+.csc-navbar-button:hover {
+	text-decoration: underline;
+	color:green;
+}
+.active {
+	font-weight: bold;
+}
+
+#logo {
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 2;
+	/*background-color: rgba(255, 255, 255, 0.125);*/
+}
+
+#logo img {
+	width: 180px;
+}
+
+#text {
+	bottom: 10px;
+	left: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(255, 255, 255, 0.75);
+}
