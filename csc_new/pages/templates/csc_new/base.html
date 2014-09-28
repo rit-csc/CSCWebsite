@@ -6,13 +6,30 @@
 		<link href="{% static 'css/csc-navbar.css' %}" rel="stylesheet" media="screen">
 		<link rel="SHORTCUT ICON" href="{% static 'imgs/logo.ico' %}">
 		<script src="{% static 'js/navbar.js' %}"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+		<link href="{% static 'css/csc-carousel.css' %}" rel="stylesheet" media="screen">
+		<script src="{% static 'js/csc-carousel.js' %}"></script>
 		{% block head %}
 		{% endblock %}
 	</head>
 	<body>
 		<div>
 			<!--banner-->
-			<a href="/"><img src="{% static 'imgs/banner.png' %}" width="1000px"></a>
+			<!--a href="/"><img src="{% static 'imgs/banner.png' %}" width="1000px"></a-->
+			
+			<!-- Carousel -->
+			<div id="carousel">
+				<span id="logo"><img src="{% static 'imgs/logo.png' %}"></span>
+				<span id="text">
+					<p>{% block title %}{% endblock %}</p>
+					<p>{% block desc %}{% endblock %}</p>
+				</span>
+				{% for img in img_list %}
+					<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}"/></div>
+				{% endfor %}
+			</div>
 			
 			<!-- Nav bar -->
 			<div id="csc-navbar">
@@ -51,11 +68,6 @@
 						Pictures
 					</div>
 				</a>
-			</div>
-			
-			<div class="page_summary_bar">
-				<p>{% block title %}{% endblock %}</p>
-				<p>{% block desc %}{% endblock %}</p>
 			</div>
 			
 			<!-- Content -->
