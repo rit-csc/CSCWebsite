@@ -8,15 +8,19 @@
 #carousel div {
 	display: inline-block;
 	position: absolute;
+	height: 400px;
+	width: 600px;
 }
 
 #carousel div img {
 	position: absolute;
 	width: 600px;
+	max-height:100%;
 }
 
 .carousel-img {
 	visibility: hidden;
+	opacity: 0;
 	z-index: -1;
 	height:100%;
 }
@@ -32,20 +36,20 @@
 .outfocus-left {
 	visibility: visible;
 	left: 0px;
-	width: 200px;
+	width: 600px;
 	height: 100%;
 	overflow: hidden;
-	opacity: 0.5;
+	opacity: 0.25;
 	z-index: 0;
 }
 
 .outfocus-right {
 	visibility: visible;
 	top: 0px;
-	left: 800px;
-	width: 200px;
+	left: 400px;
+	width: 600px;
 	height: 100%;
 	overflow: hidden;
-	opacity: 0.5;
+	opacity: 0.25;
 	z-index: 0;
 }
