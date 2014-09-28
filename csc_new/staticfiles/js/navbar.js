@@ -1,24 +1,26 @@
-function updateNavBar(){
+window.onload = function(){
 	var menu = location.pathname;
 	if (menu == "/") {
-    	document.getElementById("index").setAttribute("class", "active");
+    	setActive("index");
 	} else if (menu == "/about") {
-    	document.getElementById("about").setAttribute("class", "active");
+    	setActive("about");
 	} else if (menu == "/contact") {
-    	document.getElementById("contact").setAttribute("class", "active");
+    	setActive("contact");
 	} else if (menu == "/projects") {
-    	document.getElementById("projects").setAttribute("class", "active");
+    	setActive("projects");
 	} else if (menu == "/calendar") {
-    	document.getElementById("calendar").setAttribute("class", "active");
+    	setActive("calendar");
 	} else if (menu == "/resources") {
-    	document.getElementById("resources").setAttribute("class", "active");
+    	setActive("resources");
 	} else if (menu == "/pictures") {
-		document.getElementById("pictures").setAttribute("class", "active");
+		setActive("pictures");
 	}
 }
 
 
 
 function setActive(id){
-    document.getElementById(id).setAttribute("class", "active");
+    elem = document.getElementById(id);
+    curr = elem.getAttribute("class");
+    elem.setAttribute("class", curr+" active");
 }

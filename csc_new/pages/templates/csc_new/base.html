@@ -2,13 +2,10 @@
 <html>
 	<head>
 		{% load static %}
-		<!--script src="{% static 'components/platform/platform.js' %}"></script[-->
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
 		<link href="{% static 'css/csc-navbar.css' %}" rel="stylesheet" media="screen">
-		<!--link href="polymer_stuff/csc-navbar" rel="import">
-		<link rel="import" href="{% static 'components/polymer/polymer.html' %}">
-		<link rel="import" href="{% static 'components/polymer/layout.html' %}"-->
 		<link rel="SHORTCUT ICON" href="{% static 'imgs/logo.ico' %}">
+		<script src="{% static 'js/navbar.js' %}"></script>
 		{% block head %}
 		{% endblock %}
 	</head>
@@ -19,27 +16,41 @@
 			
 			<!-- Nav bar -->
 			<div id="csc-navbar">
-				<a href="/"> <div class="csc-navbar-button">
-					Home
-				</div> </a>
-				<a href="/about"> <div class="csc-navbar-button">
-					About
-				</div> </a>
-				<a href="/contact"> <div class="csc-navbar-button">
-					Contact
-				</div> </a>
-				<a href="/projects"> <div class="csc-navbar-button">
-					Projects
-				</div> </a>
-				<a href="/calendar"> <div class="csc-navbar-button">
-					Calendar
-				</div> </a>
-				<a href="/resources"> <div class="csc-navbar-button">
-					Resources
-				</div> </a>
-				<a href="/pictures"> <div class="csc-navbar-button">
-					Pictures
-				</div> </a>
+				<a href="/">
+					<div class="csc-navbar-button" id="index">
+						Home
+					</div>
+				</a>
+				<a href="/about">
+					<div class="csc-navbar-button" id="about">
+						About
+					</div>
+				</a>
+				<a href="/contact">
+					<div class="csc-navbar-button" id="contact">
+						Contact
+					</div>
+				</a>
+				<a href="/projects">
+					<div class="csc-navbar-button" id="projects">
+						Projects
+					</div>
+				</a>
+				<a href="/calendar">
+					<div class="csc-navbar-button" id="calendar">
+						Calendar
+					</div>
+				</a>
+				<a href="/resources">
+					<div class="csc-navbar-button" id="resources">
+						Resources
+					</div>
+				</a>
+				<a href="/pictures">
+					<div class="csc-navbar-button" id="pictures">
+						Pictures
+					</div>
+				</a>
 			</div>
 			
 			<div class="page_summary_bar">
