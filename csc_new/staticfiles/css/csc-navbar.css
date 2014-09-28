@@ -24,32 +24,8 @@
 	font-size: 125%;
 }
 .csc-navbar-button:hover {
-	text-decoration: underline;
-	color:green;
+	color:orange;
 }
 .active {
 	font-weight: bold;
-}
-
-#logo {
-	display: block;
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	z-index: 2;
-	/*background-color: rgba(255, 255, 255, 0.125);*/
-}
-
-#logo img {
-	width: 180px;
-}
-
-#text {
-	bottom: 10px;
-	left: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
-	position: absolute;
-	z-index: 2;
-	background-color: rgba(255, 255, 255, 0.75);
 }

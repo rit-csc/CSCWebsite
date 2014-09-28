@@ -34,6 +34,7 @@ Description
 
 	<div class="events_container">
 		<h2> Events </h2>
+		<hr/>
 		{% for event in events %}
 			<div class="event">
 				<h3>{{ event.summary }}</h3>
@@ -41,6 +42,7 @@ Description
 				<div> Start time: <b>{{ event.start_time }}</b></div>
 				<div> End time: <b>{{ event.end_time }}</b></div>
 				<div> <p><i>{{ event.desc }}</i></p> </div>
+				<hr/>
 			</div>
 		{% endfor %}
 	</div>

@@ -56,7 +56,7 @@ div.space {
 /* ----------------- FOR PICTURES.HTML ----------------- */
 .pic {
 	/*padding:15px;*/
-	width:50%;
+	width:49.75%;
 }
 .pic img {
 	max-width: 100%;
@@ -118,12 +118,12 @@ div.space {
 /* ----------------- FOR INDEX.HTML ----------------- */
 .img_carousel {
 	height: 300px;
-	background-color:#444444;
+	/*background-color:#444444;*/
 }
 .events_container {
 	float:left;
 	width:570px;
-	background-color:#00bb00;
+	/*background-color:#00bb00;*/
 	padding:15px;
 }
 .event {
@@ -132,7 +132,7 @@ div.space {
 .social_media_container {
 	float:left;
 	width:370px;
-	background-color:#00bbbb;
+	/*background-color:#00bbbb;*/
 	padding:15px;
 }
 
