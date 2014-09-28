@@ -1,8 +1,13 @@
 {% extends "csc_new/base.html" %}
 
 {% block head %}
+{% load static %}
 <title>Computer Science Community at RIT</title>
-<link href="polymer_stuff/csc-carousel" rel="import">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<link href="{% static 'css/csc-carousel.css' %}" rel="stylesheet" media="screen">
+<script src="{% static 'js/csc-carousel.js' %}"></script>
 {% endblock %}
 
 {% block title %}
@@ -28,7 +33,11 @@ Description
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Carousel -->
-<csc-carousel></csc-carousel>
+<div id="carousel">
+	{% for img in img_list %}
+		<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}"/></div>
+	{% endfor %}
+</div>
 <!-- Actual Content -->
 <div>
 

@@ -1,0 +1,51 @@
+#carousel {
+	position: relative;
+	height: 400px;
+	width: 1000px;
+	background-color: #000000;
+}
+
+#carousel div {
+	display: inline-block;
+	position: absolute;
+}
+
+#carousel div img {
+	position: absolute;
+	width: 600px;
+}
+
+.carousel-img {
+	visibility: hidden;
+	z-index: -1;
+	height:100%;
+}
+
+.focus {
+	visibility: visible;
+	left: 200px;
+	width: 600px;
+	height: 100%;
+	z-index: 1;
+}
+
+.outfocus-left {
+	visibility: visible;
+	left: 0px;
+	width: 200px;
+	height: 100%;
+	overflow: hidden;
+	opacity: 0.5;
+	z-index: 0;
+}
+
+.outfocus-right {
+	visibility: visible;
+	top: 0px;
+	left: 800px;
+	width: 200px;
+	height: 100%;
+	overflow: hidden;
+	opacity: 0.5;
+	z-index: 0;
+}

@@ -20,12 +20,6 @@ def index(request):
 	template = loader.get_template("pages/index.html")
 	context = RequestContext(request, {
 		'events' : re.events,
-	})
-	return HttpResponse(template.render(context))
-	
-def carousel(request):
-	template = loader.get_template("pages/polymer_stuff/csc-carousel.html")
-	context = RequestContext(request, {
 		'MEDIA_URL' : settings.MEDIA_URL,
 		'img_list' : Photo.objects.values_list('src', flat=True),
 	})

@@ -4,7 +4,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 
 <polymer-element name="csc-carousel">
-	<style>
+	<!--style>
 		#carousel {
 			position: relative;
 			height: 400px;
@@ -13,8 +13,7 @@
 		}
 		
 		#carousel div {
-			height:400px;
-			width: 600px;
+			display: inline-block;
 			position: absolute;
 		}
 		
@@ -26,12 +25,14 @@
 		.carousel-img {
 			visibility: hidden;
 			z-index: -1;
+			height:100%;
 		}
 		
 		.focus {
 			visibility: visible;
 			left: 200px;
 			width: 600px;
+			height: 100%;
 			z-index: 1;
 		}
 		
@@ -39,6 +40,7 @@
 			visibility: visible;
 			left: 0px;
 			width: 200px;
+			height: 100%;
 			overflow: hidden;
 			opacity: 0.5;
 			z-index: 0;
@@ -46,19 +48,20 @@
 		
 		.outfocus-right {
 			visibility: visible;
+			top: 0px;
 			left: 800px;
 			width: 200px;
+			height: 100%;
 			overflow: hidden;
 			opacity: 0.5;
 			z-index: 0;
 		}
-	</style>
+	</style-->
 	<template>
-		<div id="carousel">
-			{% for img in img_list %}
-				<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}"/></div>
-			{% endfor %}
-		</div>
+		
+		
+		
+		
 	</template>
 	<script>		
 		Polymer("csc-carousel", {
