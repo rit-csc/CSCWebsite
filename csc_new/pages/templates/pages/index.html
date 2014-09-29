@@ -9,10 +9,6 @@
 Computer Science Community at RIT
 {% endblock %}
 
-{% block desc %}
-Description
-{% endblock %}
-
 {% block content %}
 <!--BODY HTML GOES HERE-->
 
@@ -27,18 +23,18 @@ Description
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
-
 <!-- Actual Content -->
 <div>
-
 	<div class="events_container">
 		<h2> Events </h2>
 		<hr/>
 		{% for event in events %}
 			<div class="event">
 				<h3>{{ event.summary }}</h3>
-				<div> When: <b>{{ event.start_date }}</b></div>
+				<div> When: <b> {{ event.start_date }} </b></div>
+				{% autoescape off %}
+				<div> Where: {{ event.location }}</div> <!-- NOTE: event.location HAS HTML TAGS BUILT-IN: ADDITIONAL FORMAT TAGS NOT NECESSARY -->
+				{% endautoescape %}
 				<div> Start time: <b>{{ event.start_time }}</b></div>
 				<div> End time: <b>{{ event.end_time }}</b></div>
 				<div> <p><i>{{ event.desc }}</i></p> </div>

@@ -35,18 +35,19 @@ class Photo(models.Model):
 
 # RenderableEvent - holds an event
 class RenderableEvent:
-	__slots__=('summary', 'start_date', 'start_time', 'end_time', 'desc', 'pureTime')
+	__slots__=('summary', 'start_date', 'start_time', 'end_time', 'desc', 'pureTime', 'location')
 
-	def __init__(self, summ, sdate, stime, etime, d, stimePure):
+	def __init__(self, summ, sdate, stime, etime, d, stimePure, loc):
 		self.summary = summ
 		self.start_date = sdate
 		self.start_time = stime
 		self.end_time = etime
 		self.desc = d
 		self.pureTime = stimePure
+		self.location = loc
 
 	def __str__(self):
-		return self.summary + " " + self.start_date + " "+ self.start_time + " "+ self.end_time
+		return self.summary + " " + self.start_date + " "+ self.start_time + " "+ self.end_time + " " + self.location
 
 # RenderableEvents - holds all events
 class RenderableEvents:
@@ -61,12 +62,19 @@ class RenderableEvents:
 		offset = timedelta(hours=-4)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
+			loc = ""
+			if thing.get('location') != None:
+				if thing.get('location') == "TBD":
+					loc = "<i>TBD</i>"
+				else:
+					loc = "<b>"+thing.get('location')+"</b>"
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None)+offset > datetime.today() - timedelta(days=1):
 				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), \
 					(eventtime.dt.replace(tzinfo=None)+offset).strftime("%I:%M %p"),\
 					(thing.get('dtend').dt.replace(tzinfo=None)+offset).strftime("%I:%M %p"), thing.get('description'),\
-					(eventtime.dt.replace(tzinfo=None)+offset))
+					(eventtime.dt.replace(tzinfo=None)+offset), loc)
 				inserted = False
+				# TODO this can probably be improved in terms of efficiency.
 				for i in range(len(self.events)): # this appears to orders our events by date! ... backwards.
 					if self.events[i].pureTime < (eventtime.dt.replace(tzinfo=None)+offset):
 						self.events.insert(i,event)
