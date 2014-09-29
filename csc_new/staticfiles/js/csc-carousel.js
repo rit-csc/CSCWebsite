@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var arr = $("#carousel > div");
 	
-	var curr = 0;
+	var curr = Math.floor((Math.random() * arr.length))
 	
 	$($("#carousel > div").get((arr.length+curr-1) % arr.length)).switchClass("carousel-img", "outfocus-left");
 	$($("#carousel > div").get(curr)).switchClass("carousel-img", "focus");
