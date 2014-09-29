@@ -17,8 +17,6 @@ window.onload = function(){
 	}
 }
 
-
-
 function setActive(id){
     elem = document.getElementById(id);
     curr = elem.getAttribute("class");
