@@ -19,7 +19,7 @@ Click on a picture to learn more about it! ((TODO))
 
 {% for pic in pics %}
 	<div class="pic {% cycle 'left' 'right' %}">
-		<img src="media/{{ pic.src }}" />
+		<img src="media/{{ pic.src }}" title="{{ pic.desc }}"/>
 	</div>
 {% empty %}
 	<div>
