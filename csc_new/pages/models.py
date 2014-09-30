@@ -24,10 +24,11 @@ class ExamReview(models.Model):
 
 class Photo(models.Model):
 	title = models.CharField(max_length=100)
+	desc = models.CharField(max_length=255)
 	src = models.FileField(upload_to="photos")
 
 	def __str__(self):
-		return '%s' % (self.title)
+		return self.title + " - " + self.desc
 
 	def delete(self, *args, **kwargs):
 		os.remove(os.path.join(settings.MEDIA_ROOT, str(self.src)))
@@ -62,8 +63,8 @@ class RenderableEvents:
 		offset = timedelta(hours=-4)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
-			loc = ""
-			if thing.get('location') == None or thing.get('location') == "TBD":
+			loc = "woah"
+			if (thing.get('location') == None) or (thing.get('location') == "") or (thing.get('location') == "TBD"):
 				loc = "<i>TBD</i>"
 			else:
 				loc = "<b>"+thing.get('location')+"</b>"

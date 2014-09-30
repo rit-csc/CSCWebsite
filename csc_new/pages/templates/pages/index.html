@@ -33,7 +33,7 @@ Computer Science Community at RIT
 				<h3>{{ event.summary }}</h3>
 				<div> When: <b> {{ event.start_date }} </b></div>
 				{% autoescape off %}
-				<div> Where: {{ event.location }}</div> <!-- NOTE: event.location HAS HTML TAGS BUILT-IN: ADDITIONAL FORMAT TAGS NOT NECESSARY -->
+				<div> Where: {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}</div>
 				{% endautoescape %}
 				<div> Start time: <b>{{ event.start_time }}</b></div>
 				<div> End time: <b>{{ event.end_time }}</b></div>
