@@ -63,12 +63,7 @@ class RenderableEvents:
 		offset = timedelta(hours=-4)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
-			loc = ""
-			if thing.get('location') != None:
-				if thing.get('location') == "TBD":
-					loc = "<i>TBD</i>"
-				else:
-					loc = "<b>"+thing.get('location')+"</b>"
+			loc = thing.get('location')
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None)+offset > datetime.today() - timedelta(days=1):
 				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), \
 					(eventtime.dt.replace(tzinfo=None)+offset).strftime("%I:%M %p"),\
