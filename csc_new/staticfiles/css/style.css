@@ -79,7 +79,6 @@ p.footnote {
 .github_repo {
 	text-decoration: none;
 	padding:15px;
-	/*background-color: purple;*/
 	border: 1px solid black;
 }
 .repo_info {
@@ -124,12 +123,10 @@ p.footnote {
 /* ----------------- FOR INDEX.HTML ----------------- */
 .img_carousel {
 	height: 300px;
-	/*background-color:#444444;*/
 }
 .events_container {
 	float:left;
 	width:570px;
-	/*background-color:#00bb00;*/
 	padding:15px;
 }
 .event {
@@ -138,7 +135,6 @@ p.footnote {
 .social_media_container {
 	float:left;
 	width:370px;
-	/*background-color:#00bbbb;*/
 	padding:15px;
 }
 
