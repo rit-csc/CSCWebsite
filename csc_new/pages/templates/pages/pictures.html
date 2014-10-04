@@ -14,21 +14,14 @@ Click on a picture to learn more about it! ((TODO))
 
 <div class="space"></div>
 
-<div class="pic">
-<ul class="enlarge">
 {% for pic in pics %}
-	<li style="display:inline">
-	<img src="media/{{ pic.src }}" width="20%" height="20%"/>
-	<span>
-		<img src="media/{{ pic.src }}"/>
-		<br />{{ pic.desc }}
-	</span>
-	</li>
+	<div class="pic {% cycle 'left' 'right' %}">
+		<img src="media/{{ pic.src }}" title="{{ pic.desc }}"/>
+	</div>
 {% empty %}
 	<div>
 		We haven't uploaded any photos yet!
 	</div>
 {% endfor %}
-</div>
-</ul>
+
 {% endblock %}
