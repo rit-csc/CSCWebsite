@@ -1,0 +1,37 @@
+
+{% extends "csc_new/base.html" %}
+
+{% block head %}
+{% load staticfiles %}
+<title>Resources - RIT Computer Science Community</title>
+{% endblock %}
+
+{% block desc %}
+CSC Exam Reviews, and other resources provided or used by the organization.
+{% endblock %}
+
+{% block content %}
+<h2>Exam Reviews</h2>
+{% for exam in exams %}
+	<div>
+		<div class="exam_title"> {{ exam.title }} </div>
+		<div class="exam_links">
+			<div class="exam_link">
+				<a href="media/{{ exam.questions }}">
+					Questions
+				</a>
+			</div>
+			 -- 
+			<div class="exam_link">
+				<a href="media/{{ exam.answers }}">
+					Answers
+				</a>
+			</div>
+		</div>
+	</div>
+{% empty %}
+	<div>
+		All exam reviews (along with answers) will be posted after their respective review sessions have concluded.
+	</div>
+{% endfor %}
+{% endblock %}

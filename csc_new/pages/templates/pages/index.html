@@ -1,0 +1,59 @@
+{% extends "csc_new/base.html" %}
+
+{% block head %}
+{% load static %}
+<title>Computer Science Community at RIT</title>
+{% endblock %}
+
+{% block title %}
+Computer Science Community at RIT
+{% endblock %}
+
+{% block content %}
+<!--BODY HTML GOES HERE-->
+
+<!-- Include the JavaScript SDK once on the page,
+	ideally right after the opening <body> tag. -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Actual Content -->
+<div>
+	<div class="events_container">
+		<h2> Events </h2>
+		<hr/>
+		{% for event in events %}
+			<div class="event">
+				<h3>{{ event.summary }}</h3>
+				<div> When: <b> {{ event.start_date }} </b></div>
+				{% autoescape off %}
+				<div> Where: {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}</div>
+				{% endautoescape %}
+				<div> Start time: <b>{{ event.start_time }}</b></div>
+				<div> End time: <b>{{ event.end_time }}</b></div>
+				<div> <p><i>{{ event.desc }}</i></p> </div>
+				<hr/>
+			</div>
+		{% endfor %}
+		<p>Send Feedback: <a href="mailto:officers@csc.cs.rit.edu">officers@csc.cs.rit.edu</a></p>
+		<p>Join the Website Committee: <a href="mailto:committee.projects@csc.cs.rit.edu">committee.projects@csc.cs.rit.edu</a></p>
+	</div>
+
+	<div class="social_media_container">
+		<p>Social Media</p>
+
+		<!-- FACEBOOK FEED -->
+		<div style="margin-left:10px;background-color:#ffffff" class="fb-like-box" data-href="https://www.facebook.com/RitComputerScienceCommunity" data-width="350" data-height="200" height="425" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
+	</div>
+	
+</div>
+
+
+<!--BODY HTML ENDS HERE-->
+{% endblock %}

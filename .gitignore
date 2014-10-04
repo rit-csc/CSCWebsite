@@ -2,3 +2,6 @@
 db.sqlite3
 # all pyc files
 *.pyc
+*.xcf
+csc_new/media
+csc_new/media/*
