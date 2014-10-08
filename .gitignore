@@ -5,3 +5,4 @@ db.sqlite3
 *.xcf
 csc_new/media
 csc_new/media/*
+csc_new/csc_new/settings.py
