@@ -49,33 +49,33 @@ def projects(request):
 	repos = {
 				"csc_exam_reviews":{
 					"name":"csc_exam_reviews",
-					"description":'A collection of practice exams for exams in core curriculum CS courses at RIT. /* TODO Link to Resources page here */',
+					"description":"A collection of practice exams for exams in core curriculum CS courses at RIT.",
 					"language":"TeX",
-					"misc_info":"TODO fill me in"
+					"misc_info":"The source files for our department-sponsored exam review sessions, currently including content for all CS1, CS2, and Mechanics of Programming exams."
 				},
 				"git_instructions":{
 					"name":"git_instructions",
 					"description":"An introductory tutorial for setting up and using a Git repository, developed for the CS department by the CSC.",
 					"language":"HTML, CSS",
-					"misc_info":"TODO fill me in"
+					"misc_info":"Our work-in-progress tutorial to help RIT's CS department incorporate Git as the primary type of version control in the introductory course curriculum."
 				},
 				"sensorship":{
 					"name":"sensorship",
 					"description":"A simple Pong desktop game that utilizes the accelerometer data from connected Android devices.",
 					"language":"Java",
-					"misc_info":"TODO fill me in"
+					"misc_info":"This project was a hack for Yale University's Yhack 2013."
 				},
 				"MorseCode":{
 					"name":"MorseCode",
 					"description":"An Android app developed by Mike Lyman and Doug Krofcheck that makes discrete Morse Code texting available to the masses.",
 					"language":"Java",
-					"misc_info":"TODO fill me in"
+					"misc_info":"This project was a hack for Yale University's Yhack 2013."
 				},
 				"CSC-Plays-Pokemon":{
 					"name":"CSC-Plays-Pokemon",
 					"description":"A program to accompany Eric Falkenberg's workshop on the technical side of \"Twitch Plays Pokémon\".",
 					"language":"C++",
-					"misc_info":"TODO fill me in"
+					"misc_info":""
 				},
 			}
 
