@@ -7,3 +7,6 @@ csc_new/media
 csc_new/media/*
 csc_new/csc_new/settings.py
 *.DS_Store
+# PyCharm, WebStorm, etc. (JetBrains)
+.idea/
+.idea
