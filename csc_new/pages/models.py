@@ -61,11 +61,11 @@ class RenderableEvents:
 		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
 		lt = LocalTimezone()
-		offset = timedelta(hours=-4)
+		offset = timedelta(hours=-5)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
-			if eventtime != None:
-				offset = lt.utcoffset(eventtime.dt)
+	#		if eventtime != None:
+	#			offset = lt.utcoffset(eventtime.dt)
 			loc = ""
 			if (thing.get('location') == None) or (thing.get('location') == "") or (thing.get('location') == "TBD"):
 				loc = "TBD"
