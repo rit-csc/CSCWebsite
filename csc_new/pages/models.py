@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.encoding import force_bytes
 
 # dependent on icalendar package - pip install icalendar
-from icalendar import Calendar, Event, vDatetime
+from icalendar import Calendar, Event, vDatetime, LocalTimezone
 from datetime import datetime, timedelta
 import urllib.request, urllib.error, urllib.parse
 import os
@@ -60,9 +60,12 @@ class RenderableEvents:
 	def getEvents(self):
 		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
+		lt = LocalTimezone()
 		offset = timedelta(hours=-4)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
+			if eventtime != None:
+				offset = lt.utcoffset(eventtime.dt.replace(tzinfo=None))
 			loc = ""
 			if (thing.get('location') == None) or (thing.get('location') == "") or (thing.get('location') == "TBD"):
 				loc = "TBD"
