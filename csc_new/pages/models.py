@@ -65,7 +65,7 @@ class RenderableEvents:
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
 			if eventtime != None:
-				offset = lt.utcoffset(eventtime.dt.replace(tzinfo=None))
+				offset = lt.utcoffset(eventtime.dt)
 			loc = ""
 			if (thing.get('location') == None) or (thing.get('location') == "") or (thing.get('location') == "TBD"):
 				loc = "TBD"
