@@ -12,20 +12,25 @@ CSC Exam Reviews, and other resources provided or used by the organization.
 
 {% block content %}
 <h2>Tutorials</h2>
-<div><a href="http://rit-csc.github.io/git_instructions/index.html">Git</a></div>
+<div>
+	<a href="http://rit-csc.github.io/git_instructions/index.html" target="_blank">
+		Git
+	</a>
+</div>
+
 <h2>Exam Reviews</h2>
 {% for exam in exams %}
 	<div>
 		<div class="exam_title"> {{ exam.title }} </div>
 		<div class="exam_links">
 			<div class="exam_link">
-				<a href="media/{{ exam.questions }}">
+				<a href="media/{{ exam.questions }}" target="_blank">
 					Questions
 				</a>
 			</div>
 			 -- 
 			<div class="exam_link">
-				<a href="media/{{ exam.answers }}">
+				<a href="media/{{ exam.answers }}" target="_blank">
 					Answers
 				</a>
 			</div>
