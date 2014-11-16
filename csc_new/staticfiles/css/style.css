@@ -6,17 +6,15 @@ body {
 	font-family:verdana,serif;
 }
 
+/* Default link style. */
 a {
-	/*text-decoration: none;
-	color: black;*/
+	text-decoration: none;
+	color: blue;
 }
-a:visited {
-	/*text-decoration: none;
-	color: black;*/
-}
+/* Emphasize links on hover. */
 a:hover {
-	/*text-decoration: underline;
-	color: black;*/
+	text-decoration: underline;
+	color: orange;
 }
 
 div.space {
@@ -111,8 +109,7 @@ p.footnote {
 	width:70%;
 }
 .repo_info_link a {
-	text-decoration: underline;
-	color: black;
+	font-weight: bold;
 }
 
 /* ----------------- FOR ...? ----------------- */
