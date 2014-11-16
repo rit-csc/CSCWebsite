@@ -1,4 +1,4 @@
-window.onload = function(){
+function updateStyle(){
 	var menu = location.pathname;
 	if (menu == "/") {
     	setActive("index");
