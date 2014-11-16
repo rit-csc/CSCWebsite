@@ -6,8 +6,26 @@ body {
 	font-family:verdana,serif;
 }
 
+a {
+	/*text-decoration: none;
+	color: black;*/
+}
+a:visited {
+	/*text-decoration: none;
+	color: black;*/
+}
+a:hover {
+	/*text-decoration: underline;
+	color: black;*/
+}
+
 div.space {
 	padding:15px;
+}
+
+td {
+	/* TODO: remove all tables ever */
+	padding-right: 15px;
 }
 
 /* ----------------- FOR ABOUT.HTML ----------------- */
