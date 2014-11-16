@@ -29,22 +29,39 @@ Computer Science Community at RIT
 <div>
 	<div class="events_container">
 		<h2> Events </h2>
+
 		<hr/>
+
 		{% for event in events %}
 			<div class="event">
 				<h3>{{ event.summary }}</h3>
-				<div> When: <b> {{ event.start_date }} </b></div>
+				<div>
+					When: <b> {{ event.start_date }} </b>
+				</div>
 				{% autoescape off %}
-				<div> Where: {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}</div>
+				<div>
+					Where: {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}
+				</div>
 				{% endautoescape %}
-				<div> Start time: <b>{{ event.start_time }}</b></div>
-				<div> End time: <b>{{ event.end_time }}</b></div>
-				<div> <p><i>{{ event.desc }}</i></p> </div>
+				<div>
+					Start time: <b>{{ event.start_time }}</b>
+				</div>
+				<div>
+					End time: <b>{{ event.end_time }}</b>
+				</div>
+				<p>
+					<i>{{ event.desc }}</i>
+				</p>
 				<hr/>
 			</div>
 		{% endfor %}
-		<p>Send Feedback: <a href="mailto:officers@csc.cs.rit.edu">officers@csc.cs.rit.edu</a></p>
-		<p>Join the Website Committee: <a href="mailto:committee.projects@csc.cs.rit.edu">committee.projects@csc.cs.rit.edu</a></p>
+
+		<p>
+			Send Feedback: <a href="mailto:officers@csc.cs.rit.edu">officers@csc.cs.rit.edu</a>
+		</p>
+		<p>
+			Join the Website Committee: <a href="mailto:committee.projects@csc.cs.rit.edu">committee.projects@csc.cs.rit.edu</a>
+		</p>
 	</div>
 
 	<div class="social_media_container">
