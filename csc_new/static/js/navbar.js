@@ -4,8 +4,6 @@ window.onload = function(){
     	setActive("index");
 	} else if (menu == "/about") {
     	setActive("about");
-	} else if (menu == "/contact") {
-    	setActive("contact");
 	} else if (menu == "/projects") {
     	setActive("projects");
 	} else if (menu == "/calendar") {
