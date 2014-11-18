@@ -157,5 +157,9 @@ p.footnote {
 	float:left;
 	width:370px;
 	padding:15px;
+	z-index: -1;
+}
+.social_media_container p {
+	/* nothing yet (should stylize/indicate that these are all forms) */
 }
 
