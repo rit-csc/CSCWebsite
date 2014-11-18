@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.encoding import force_bytes
+from django.utils import timezone
 
 # dependent on icalendar package - pip install icalendar
 from icalendar import Calendar, Event, vDatetime, LocalTimezone
@@ -7,6 +8,8 @@ from datetime import datetime, timedelta
 import urllib.request, urllib.error, urllib.parse
 import os
 from csc_new import settings
+
+import dateutil.rrule as rrule
 
 # Create your models here.
 class ExamReview(models.Model):	
@@ -60,7 +63,7 @@ class RenderableEvents:
 	def getEvents(self):
 		icalFile = urllib.request.urlopen('http://www.google.com/calendar/ical/calendar%40csc.cs.rit.edu/public/basic.ics')
 		ical = Calendar.from_ical(icalFile.read())
-		lt = LocalTimezone()
+	#	lt = LocalTimezone()
 		offset = timedelta(hours=-5)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
@@ -85,6 +88,20 @@ class RenderableEvents:
 						break
 				if not inserted:
 					self.events.append(event)
+			elif thing.name == "VEVENT" and thing.get('RRULE') is not None:
+				print(thing.get('RRULE').to_ical())
+				repeats = list(rrule.rrulestr(thing.get('RRULE').to_ical().decode('unicode_escape'), ignoretz=True, dtstart=datetime.now()))
+				if(len(repeats) <= 0):
+					continue
+				print(repeats[0])
+				#Remove after Fall Semester 2014
+				if(thing.get('summary') == 'General Meeting!'):
+					continue
+				# # # # # # # # # # # # # # # # #
+				self.events.append(RenderableEvent(thing.get('summary'), (repeats[0].replace(tzinfo=None)).strftime("%m/%d/%Y"), \
+					(thing.get('dtstart').dt.replace(tzinfo=None)).strftime("%I:%M %p"), \
+					(thing.get('dtend').dt.replace(tzinfo=None)).strftime("%I:%M %p"), thing.get('description'), \
+					(repeats[0].replace(tzinfo=None)), loc))
 		self.events = self.events[::-1] # reverse the list, because it was backwards by date!
 		icalFile.close()
 
