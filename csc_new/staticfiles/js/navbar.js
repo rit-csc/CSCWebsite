@@ -8,9 +8,16 @@ window.onscroll =
 		if(pos <= 0){
 			navbar.style.position = "fixed";
 			navbar.style.top = "0px";
+			carousel.style.marginBottom = "64px";
+			/* 64 + 15 = 79px
+			 * 		64: height of navbar
+			 * 		15: size of div class="space" found on each page
+			 * 		thus we make the margin 79px for smooth scrolling.
+			 */
 		}else{
 			navbar.style.position = "static";
 			navbar.style.top = carousel.style.height;
+			carousel.style.marginBottom = "0px";
 		}
 	};
 
