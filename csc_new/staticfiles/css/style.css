@@ -28,11 +28,17 @@ td {
 
 /* ----------------- FOR ABOUT.HTML ----------------- */
 .bio {
-	padding:15px;
+	padding: 15px;
+	margin-bottom: 25px;
+	border-radius: 20px;
+	background-color: #E6E6E6;
+	clear: both;
+	overflow: hidden;
 }
 .bio_text {
 	float:left;
 	max-width: 850px;
+	text-align: justify;
 }
 .bio_img {
 	float:right;
@@ -41,16 +47,21 @@ td {
 .bio_img img {
 	max-width:100px;
 	max-height:100px;
-	/* TODO once people fill their bio's in, we can bump this number up to 50% and it'll look nice (probably) */
-	padding-top: 35%;
+	margin-top: 50%;
+	border-radius: 20px;
 }
 .our_mission {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 75%;
+	max-width: 55%;
+	background-color: #E6E6E6;
+	border-radius: 20px;
+	padding-bottom: 1px;
+	margin-bottom: 14px;
+	padding-top: 1px;
+	margin-top: 14px;
 }
-
 p.footnote {
 	vertical-align: super;
 	font-size: 75%;
