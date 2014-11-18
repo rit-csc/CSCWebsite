@@ -67,13 +67,11 @@ class RenderableEvents:
 		offset = timedelta(hours=-5)
 		for thing in ical.walk():
 			eventtime = thing.get('dtstart')
-	#		if eventtime != None:
-	#			offset = lt.utcoffset(eventtime.dt)
-			loc = ""
-			if (thing.get('location') == None) or (thing.get('location') == "") or (thing.get('location') == "TBD"):
+			# if eventtime != None:
+			# 	offset = lt.utcoffset(eventtime.dt)
+			loc = thing.get('location')
+			if ( loc== None) or (loc == "") or (loc == "TBD"):
 				loc = "TBD"
-			else:
-				loc = thing.get('location')
 			if thing.name == "VEVENT" and eventtime.dt.replace(tzinfo=None)+offset > datetime.today() - timedelta(days=1):
 				event = RenderableEvent(thing.get('summary'), (eventtime.dt.replace(tzinfo=None)+offset).strftime("%m/%d/%Y"), \
 					(eventtime.dt.replace(tzinfo=None)+offset).strftime("%I:%M %p"),\
@@ -89,11 +87,9 @@ class RenderableEvents:
 				if not inserted:
 					self.events.append(event)
 			elif thing.name == "VEVENT" and thing.get('RRULE') is not None:
-				print(thing.get('RRULE').to_ical())
 				repeats = list(rrule.rrulestr(thing.get('RRULE').to_ical().decode('unicode_escape'), ignoretz=True, dtstart=datetime.now()))
 				if(len(repeats) <= 0):
 					continue
-				print(repeats[0])
 				#Remove after Fall Semester 2014
 				if(thing.get('summary') == 'General Meeting!'):
 					continue
