@@ -6,14 +6,19 @@ window.onscroll =
 		var pos = carousel.getBoundingClientRect().bottom;
 
 		if(pos <= 0){
+
 			navbar.style.position = "fixed";
 			navbar.style.top = "0px";
 
-			carousel.style.marginBottom = String(
-				Number(document.getElementByClassName("space")[0].style.height) +
-				Number(navbar.style.height))
-				+ "px";
-		}else{
+			// carousel.style.marginBottom = String(
+			// 	Number(document.getElementByClassName("space")[0].style.height) +
+			// 	Number(navbar.getBoundingClientRect().height))
+			// 	+ "px"
+
+			// below should would ideally not be hard-coded in but apparently even jQuery can't get the height correct...
+			carousel.style.marginBottom = "44px"; // this is the effective height of the navbar
+
+		} else {
 			navbar.style.position = "static";
 			navbar.style.top = carousel.style.height;
 			carousel.style.marginBottom = "0px";
