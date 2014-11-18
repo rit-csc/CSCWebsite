@@ -1,3 +1,19 @@
+window.onscroll =
+	function updatePos(){
+		var navbar = document.getElementById('csc-navbar');
+		var carousel = document.getElementById('carousel');
+
+		var pos = carousel.getBoundingClientRect().bottom;
+
+		if(pos <= 0){
+			navbar.style.position = "fixed";
+			navbar.style.top = "0px";
+		}else{
+			navbar.style.position = "static";
+			navbar.style.top = carousel.style.height;
+		}
+	};
+
 function updateStyle(){
 	var menu = location.pathname;
 	if (menu == "/") {
