@@ -12,6 +12,8 @@ Mouse over a picture to learn more about it!
 
 {% block content %}
 
+<div class="space"></div>
+
 {% for pic in pics %}
 	<div class="pic {% cycle 'left' 'right' %}">
 		<img src="media/{{ pic.src }}" title="{{ pic.desc }}"/>

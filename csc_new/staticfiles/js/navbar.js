@@ -6,15 +6,19 @@ window.onscroll =
 		var pos = carousel.getBoundingClientRect().bottom;
 
 		if(pos <= 0){
+
 			navbar.style.position = "fixed";
 			navbar.style.top = "0px";
-			carousel.style.marginBottom = "64px";
-			/* 64 + 15 = 79px
-			 * 		64: height of navbar
-			 * 		15: size of div class="space" found on each page
-			 * 		thus we make the margin 79px for smooth scrolling.
-			 */
-		}else{
+
+			// carousel.style.marginBottom = String(
+			// 	Number(document.getElementByClassName("space")[0].style.height) +
+			// 	Number(navbar.getBoundingClientRect().height))
+			// 	+ "px"
+
+			// below should would ideally not be hard-coded in but apparently even jQuery can't get the height correct...
+			carousel.style.marginBottom = "44px"; // this is the effective height of the navbar
+
+		} else {
 			navbar.style.position = "static";
 			navbar.style.top = carousel.style.height;
 			carousel.style.marginBottom = "0px";
