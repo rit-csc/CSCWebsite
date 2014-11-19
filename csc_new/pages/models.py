@@ -31,7 +31,7 @@ class Photo(models.Model):
 	src = models.FileField(upload_to="photos")
 
 	def __str__(self):
-		return self.title + " - " + self.desc
+		return self.title
 
 	def delete(self, *args, **kwargs):
 		os.remove(os.path.join(settings.MEDIA_ROOT, str(self.src)))

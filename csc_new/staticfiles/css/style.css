@@ -86,6 +86,12 @@ p.footnote {
 	/*padding:15px;*/
 	width:49.75%;
 }
+.pic p {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: center;
+}
 .pic img {
 	max-width: 100%;
 	max-height: 100%;

@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block desc %}
-Mouse over a picture to learn more about it!
+Here are some of our best pictures!
 {% endblock %}
 
 {% block content %}
@@ -15,13 +15,36 @@ Mouse over a picture to learn more about it!
 <div class="space"></div>
 
 {% for pic in pics %}
-	<div class="pic {% cycle 'left' 'right' %}">
-		<img src="media/{{ pic.src }}" title="{{ pic.desc }}"/>
+
+	{% with forloop.counter0|divisibleby:"2" as even %}
+
+	{% if even %}
+	<div class="row">
+	{% endif %}
+
+		<div class="pic {% cycle 'left' 'right' %}">
+			<img src="media/{{ pic.src }}" title="{{ pic.title }}"/>
+			<p>
+				{{ pic.desc }}
+			</p>
+		</div>
+
+	{% if not even %}
 	</div>
+	{% endif %}
+
+	{% endwith %}
+
 {% empty %}
 	<div>
 		We haven't uploaded any photos yet!
 	</div>
 {% endfor %}
+
+{% if pics and not pics.count|divisibleby:"2" %}
+	</div>
+{% endif %}
+
+<script src="{% static 'js/pictures.js' %}"></script>
 
 {% endblock %}
