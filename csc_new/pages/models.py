@@ -16,6 +16,7 @@ class ExamReview(models.Model):
 	title = models.CharField(max_length=100)
 	questions = models.FileField(upload_to="exam_reviews")
 	answers = models.FileField(upload_to="exam_reviews")
+	last_modified = models.DateTimeField(auto_now_add=True, auto_now=True)
 		
 	def __str__(self):
 		return '%s' % (self.title)
