@@ -26,7 +26,6 @@ div.space {
 .bio {
 	padding: 15px;
 	margin-bottom: 25px;
-	border-radius: 20px;
 	background-color: #E6E6E6;
 	clear: both;
 	overflow: hidden;
@@ -44,16 +43,17 @@ div.space {
 	max-width:100px;
 	max-height:100px;
 	margin-top: 50%;
-	border-radius: 20px;
+	/*border-radius: 20px;*/
 }
 .our_mission {
+	padding-right: 15px;
+	padding-left: 15px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 14px;
+	margin-bottom: 30px;
 	max-width: 55%;
-	background-color: #E6E6E6;
-	border-radius: 20px;
+	background-color: #ECF6FF;
 	padding-bottom: 5px;
 	padding-top: 1px;
 }
@@ -63,12 +63,13 @@ p.footnote {
 	font-style: oblique;
 }
 
-
-
 /* ----------------- FOR RESOURCES.HTML ----------------- */
 
 .exam {
 	/* nothing yet */
+	height: 1.3em;
+	text-align: middle;
+	margin-bottom: 10px;
 }
 
 /* the exam title */
@@ -98,33 +99,33 @@ p.footnote {
 
 
 /* ----------------- FOR PICTURES.HTML ----------------- */
-.pic {
-	/*padding:15px;*/
-	width:49.25%;
-}
-.pic p {
-	width: 90%;
-	margin-left: 5%;
-	margin-right: 5%;
-	text-align: center;
-}
-.pic img {
-	max-width: 100%;
-	max-height: 100%;
-}
-.row > div.pic:nth-of-type(1) {
-	float:left;
-}
-.row > div.pic:nth-of-type(2) {
-	float:right;
+.pictable {
+	display: block;
+	max-width:1000px;
+	table-layout: fixed;
 }
 
+.pictable tbody, tr {
+	display: block;
+	width: 100%;
+}
+
+.pictable td {
+	vertical-align: top;
+	text-align: center;
+	width: 50%;
+}
+
+.pictable img {
+	display: block;
+	width: 100%;
+}
 
 /* ----------------- FOR PROJECTS.HTML ----------------- */
 .github_repo {
 	text-decoration: none;
 	padding:15px;
-	border: 1px solid black;
+	background-color: #E6E6E6;
 }
 
 /* div containing repo title, link, and language stats */
@@ -197,10 +198,14 @@ p.footnote {
 .events_container {
 	float:left;
 	width:570px;
-	padding:15px;
+	padding-bottom: 15px;
 }
 .event {
-	/* nothing yet */
+	background-color: #E6E6E6;
+	padding-left: 1em;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	margin-bottom: 10px;
 }
 .social_media_container {
 	float:left;
