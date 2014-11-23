@@ -99,27 +99,27 @@ p.footnote {
 
 
 /* ----------------- FOR PICTURES.HTML ----------------- */
-.pic {
-	/*padding:15px;*/
-	width:49.25%;
-}
-.pic p {
-	width: 90%;
-	margin-left: 5%;
-	margin-right: 5%;
-	text-align: center;
-}
-.pic img {
-	max-width: 100%;
-	max-height: 100%;
-}
-.row > div.pic:nth-of-type(1) {
-	float:left;
-}
-.row > div.pic:nth-of-type(2) {
-	float:right;
+.pictable {
+	display: block;
+	max-width:1000px;
+	table-layout: fixed;
 }
 
+.pictable tbody, tr {
+	display: block;
+	width: 100%;
+}
+
+.pictable td {
+	vertical-align: top;
+	text-align: center;
+	width: 50%;
+}
+
+.pictable img {
+	display: block;
+	width: 100%;
+}
 
 /* ----------------- FOR PROJECTS.HTML ----------------- */
 .github_repo {
