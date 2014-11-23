@@ -1,5 +1,5 @@
 
-formatRows();
+window.addEventListener("load", formatRows);
 
 function formatRows(){
 
@@ -21,9 +21,9 @@ function formatRows(){
 			var h0 = children[0].clientHeight;
 			var h1 = children[1].clientHeight;
 			if(h0 > h1){
-				children[1].style.height = h0 + "px";
+				rows[i].style.height = h0 + "px";
 			}else{
-				children[0].style.height = h1 + "px";
+				rows[i].style.height = h1 + "px";
 			}
 
 		}

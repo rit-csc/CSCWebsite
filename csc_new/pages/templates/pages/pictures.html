@@ -4,6 +4,7 @@
 
 {% block head %}
 <title>Pictures - RIT Computer Science Community</title>
+<script src="{% static 'js/pictures.js' %}"></script>
 {% endblock %}
 
 {% block desc %}
@@ -22,7 +23,7 @@ Here are some of our best pictures!
 	<div class="row">
 	{% endif %}
 
-		<div class="pic {% cycle 'left' 'right' %}">
+		<div class="pic">
 			<img src="media/{{ pic.src }}" title="{{ pic.title }}"/>
 			<p>
 				{{ pic.desc }}
@@ -44,7 +45,5 @@ Here are some of our best pictures!
 {% if pics and not pics.count|divisibleby:"2" %}
 	</div>
 {% endif %}
-
-<script src="{% static 'js/pictures.js' %}"></script>
 
 {% endblock %}
