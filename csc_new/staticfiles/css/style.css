@@ -6,6 +6,10 @@ body {
 	font-family:verdana,serif;
 }
 
+div.space {
+	padding:15px;
+}
+
 /* Default link style. */
 a {
 	text-decoration: none;
@@ -17,9 +21,6 @@ a:hover {
 	color: orange;
 }
 
-div.space {
-	padding:15px;
-}
 
 
 /* ----------------- FOR ABOUT.HTML ----------------- */
@@ -62,6 +63,8 @@ p.footnote {
 	font-size: 75%;
 	font-style: oblique;
 }
+
+
 
 /* ----------------- FOR RESOURCES.HTML ----------------- */
 
@@ -119,6 +122,12 @@ p.footnote {
 .pictable img {
 	display: block;
 	width: 100%;
+}
+
+.pictable p {
+	max-width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 /* ----------------- FOR PROJECTS.HTML ----------------- */

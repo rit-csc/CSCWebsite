@@ -15,6 +15,10 @@ Here are some of our best pictures!
 
 <div class="space"></div>
 
+
+{% if pics %}
+
+
 <table class="pictable">
 {% for pic in pics %}
 
@@ -33,15 +37,22 @@ Here are some of our best pictures!
 
 	{% endwith %}
 
-{% empty %}
+{% endfor %}
+
+{% if not pics.count|divisibleby:"2" %}
+	<td></td></tr>
+{% endif %}
+</table>
+
+
+{% else %}
+
+
 	<div>
 		We haven't uploaded any photos yet!
 	</div>
-{% endfor %}
-</table>
 
-{% if pics and not pics.count|divisibleby:"2" %}
-	</div>
+
 {% endif %}
 
 {% endblock %}
