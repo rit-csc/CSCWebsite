@@ -209,20 +209,21 @@ p.footnote {
 }
 .events_container {
 	float:left;
-	width:570px;
+	width:600px;
 	padding-bottom: 15px;
 }
 .event {
 	background-color: #E6E6E6;
 	padding-left: 1em;
+	padding-right: 1em;
 	padding-top: 1px;
 	padding-bottom: 1px;
 	margin-bottom: 10px;
 }
 .social_media_container {
-	float:left;
+	float:right;
 	width:370px;
-	padding:15px;
+	padding-left:30px;
 	z-index: -1;
 }
 .social_media_container p {
