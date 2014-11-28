@@ -31,20 +31,23 @@ a:hover {
 	clear: both;
 	overflow: hidden;
 }
-.bio_text {
+
+/* div containing bio text */
+.bio > div:nth-of-type(1) {
 	float:left;
 	max-width: 850px;
 	text-align: justify;
 }
-.bio_img {
+
+/* div containing bio image */
+.bio > div:nth-of-type(2) {
 	float:right;
 	width:100px;
 }
-.bio_img img {
+.bio img {
 	max-width:100px;
 	max-height:100px;
 	margin-top: 50%;
-	/*border-radius: 20px;*/
 }
 .our_mission {
 	padding-right: 15px;
@@ -226,6 +229,9 @@ p.footnote {
 	/* nothing yet */
 }
 
+
+
+/* ----------------- FOR THE FOOTER ----------------- */
 .footer {
 	/* nothing yet */
 }
