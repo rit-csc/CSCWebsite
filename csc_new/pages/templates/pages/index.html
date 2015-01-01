@@ -51,6 +51,11 @@ Computer Science Community at RIT
 					<i>{{ event.desc }}</i>
 				</p>
 			</div>
+		{% empty %}
+			<div>
+				We have no events in the next two weeks!
+				For more details, check out our <a href="/calendar">events calendar</a>.
+			</div>
 		{% endfor %}
 
 	</div>
