@@ -16,7 +16,7 @@ class MemberType(models.Model):
 #	user - holds name, username(dce), email
 #	type - the member type
 class Member(AbstractUser):
-	REQUIRED_FIELDS = ['memberType']
+	REQUIRED_FIELDS = ['memberType', 'email']
 
 	# Default User Manager being attached
 	objects = UserManager()
@@ -45,13 +45,13 @@ class Member(AbstractUser):
 
 # Event - defines an event
 #	name - name of the event
-#	time - time of the event
+#	start_time - time of the event
 # 	loc	- location of the event
 class Event(models.Model):
 	REQUIRED_FIELDS = ['name']
 
 	name = models.CharField(max_length=80)
-	time = models.DateTimeField()
+	start_time = models.DateTimeField()
 	loc = models.CharField(max_length=80)
 
 	# ManyToMany relationship, with EventLogin as the intermediate model.

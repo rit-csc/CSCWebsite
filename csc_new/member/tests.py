@@ -6,12 +6,12 @@ from member.models import *
 class MemberTestCase(TestCase):
 
 	def test_create_new_base_member(self):
-		m1 = Member.objects.create(username="test")
+		m1 = Member.objects.create(username="test", email="test@test.com")
 		self.assertTrue(Member.objects.all().count() == 1)
 		self.assertEqual(Member.objects.get(pk=m1.pk).memberType, "Base")
 
 	def test_create_new_gold_member(self):
-		m1 = Member.objects.create(username="test", memberType="Gold")
+		m1 = Member.objects.create(username="test", email="test@test.com", memberType="Gold")
 		self.assertTrue(Member.objects.all().count() == 1)
 		self.assertEqual(Member.objects.get(pk=m1.pk).memberType, "Gold")
 
@@ -27,7 +27,7 @@ class CommitteeTestCase(TestCase):
 		self.assertTrue(c1.members.count() == 0)
 
 	def test_create_new_committee_with_chair(self):
-		m1 = Member.objects.create(username="test")
+		m1 = Member.objects.create(username="test", email="test@test.com")
 		c1 = Committee.objects.create(name="test committee", email="test@test.com", chair=m1)
 		self.assertTrue(c1.members.count() == 0)
 		self.assertEqual(c1.chair, m1)
@@ -35,8 +35,8 @@ class CommitteeTestCase(TestCase):
 class CommitteeMembershipTestCase(TestCase):
 
 	def setUp(self):
-		Member.objects.create(username="test")
-		Member.objects.create(username="test2")
+		Member.objects.create(username="test", email="test@test.com")
+		Member.objects.create(username="test2", email="test@test.com")
 		Committee.objects.create(name="test committee", email="test@test.com")
 
 	def test_create_committee_membership(self):
