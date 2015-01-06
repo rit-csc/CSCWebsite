@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, UserManager
 
 # MemberType - defines member types
 # 	typeName - the human-readable name of the type
@@ -15,18 +15,14 @@ class MemberType(models.Model):
 # Member - defines a member
 #	user - holds name, username(dce), email
 #	type - the member type
-class Member(models.Model):
-	REQUIRED_FIELDS = ['user', 'memberType']
+class Member(AbstractUser):
+	REQUIRED_FIELDS = ['memberType']
 
-	user = models.OneToOneField(User, primary_key=True)
+	# Default User Manager being attached
+	objects = UserManager()
+
 	# memberType = models.ForeignKey(MemberType)
 	memberType = models.CharField(max_length=20, default="Base")
-
-	def __init__(self, username, *args, **kwargs):
-		user = User.objects.create_user(username=username)
-		if "memberType" in args:
-			memberType = args.pop("memberType")
-		super(Member, self).__init__(*args, **kwargs)
 
 	# def __str__(self):
 	# 	return self.memberType + "Member No. " + self.pk
@@ -91,13 +87,6 @@ class Committee(models.Model):
 	# In this way, CommitteeMembership is associated with the ManyToManyField and can
 	# 	store additional information about the relationship.
 	members = models.ManyToManyField(Member, through='CommitteeMembership')
-
-	def __init__(self, name, email, *args, **kwargs):
-		self.name = name
-		self.email = email
-		if "chair" in args:
-			chair = args.pop("chair")
-		super(Committee, self).__init__(*args, **kwargs)
 	
 # CommitteeMembership - intermediate model used to define the ManyToMany
 # 						relationship between members and committees
