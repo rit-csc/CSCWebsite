@@ -29,8 +29,10 @@ class Member(AbstractUser):
 
 	# Committees for which this Member has a CommitteeMembership.
 	# (Use the ManyToMany relationship to return all related committees.)
-	def committees_member_of(self):
+	def _committees_member_of(self):
 		return self.committee_set.all()
+
+	committees = property(_committees_member_of)
 
 	# Return all EventLogins for this Member.
 	def event_logins(self):
@@ -98,6 +100,6 @@ class CommitteeMembership(models.Model):
 	member = models.ForeignKey(Member)
 	committee = models.ForeignKey(Committee)
 
-	# Can add additional fields here...
-	date_joined = models.DateField()
+	# Automatically set to the current time when the object is first created.
+	date_joined = models.DateField(auto_now_add=True)
 	
