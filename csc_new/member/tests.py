@@ -36,6 +36,7 @@ class CommitteeMembershipTestCase(TestCase):
 
 	def setUp(self):
 		Member.objects.create(username="test")
+		Member.objects.create(username="test2")
 		Committee.objects.create(name="test committee", email="test@test.com")
 
 	def test_create_committee_membership(self):
@@ -46,3 +47,17 @@ class CommitteeMembershipTestCase(TestCase):
 		self.assertEqual(m1.committees.first(), c1)
 		self.assertTrue(c1.members.count() == 1)
 		self.assertEqual(c1.members.first(), m1)
+
+	def test_create_multiple_committee_memberships(self):
+		m1 = Member.objects.get(username="test")
+		m2 = Member.objects.get(username="test2")
+		c1 = Committee.objects.get(name="test committee")
+		CommitteeMembership.objects.create(member=m1, committee=c1)
+		CommitteeMembership.objects.create(member=m2, committee=c1)
+		self.assertTrue(m1.committees.count() == 1)
+		self.assertEqual(m1.committees.first(), c1)
+		self.assertTrue(m2.committees.count() == 1)
+		self.assertEqual(m2.committees.first(), c1)
+		self.assertTrue(c1.members.count() == 2)
+		self.assertIn(m1, c1.members.all())
+		self.assertIn(m2, c1.members.all())
