@@ -61,3 +61,25 @@ class CommitteeMembershipTestCase(TestCase):
 		self.assertTrue(c1.members.count() == 2)
 		self.assertIn(m1, c1.members.all())
 		self.assertIn(m2, c1.members.all())
+
+class EventTestCase(TestCase):
+
+	def test_create_simple_event(self):
+		e1 = Event.objects.create(name="testEvent")
+		self.assertTrue(Event.objects.all().count() == 1)
+
+	def test_create_detailed_event(self):
+		e1 = Event.objects.create(name="testEvent",loc="123 Happy Pl")
+		self.assertTrue(Event.objects.all().count() == 1)
+		self.assertEqual(Event.objects.get(name="testEvent",loc="123 Happy Pl"), e1)
+
+class EventLoginTestCase(TestCase):
+
+	def test_create_event_login(self):
+		pass
+
+	def test_one_member_attends_multiple_events(self):
+		pass
+
+	def test_multiple_members_attend_one_event(self):
+		pass

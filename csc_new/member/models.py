@@ -51,8 +51,8 @@ class Event(models.Model):
 	REQUIRED_FIELDS = ['name']
 
 	name = models.CharField(max_length=80)
-	start_time = models.DateTimeField()
-	loc = models.CharField(max_length=80)
+	start_time = models.DateTimeField(null=True)
+	loc = models.CharField(max_length=80, null=True)
 
 	# ManyToMany relationship, with EventLogin as the intermediate model.
 	# In this way, EventLogin is associated with the ManyToManyField and can
