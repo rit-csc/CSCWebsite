@@ -139,37 +139,39 @@ p.footnote {
 	padding:15px;
 	background-color: #E6E6E6;
 }
+.github_repo > div {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
-/* div containing repo title, link, and language stats */
+/* div containing repo title and language stats */
 .github_repo > div:nth-of-type(1) {
-	width:300px;
-}
-
-/* repo title and link */
-.github_repo > div:nth-of-type(1) > div:nth-of-type(1) {
 	float:left;
-	width:70%;
-}
-.github_repo > div:nth-of-type(1) > div:nth-of-type(1) a {
-	font-weight: bold;
+	width:50%;
 }
 
 /* repo language stats */
+.github_repo > div:nth-of-type(1) > div:nth-of-type(1) {
+	float:left;
+	width:15%;
+}
+
+/* repo title */
 .github_repo > div:nth-of-type(1) > div:nth-of-type(2) {
 	float:right;
-	width:30%;
+	width:85%;
+	font-weight: bold;
+}
+
+/* div containing repo src and gh-pages links */
+.github_repo > div:nth-of-type(2) {
+	float:right;
+	width:50%;
 }
 
 /* div containing repo description */
-.github_repo > div:nth-of-type(2) {
-	font-style: italic;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-/* div containing repo misc info */
 .github_repo > div:nth-of-type(3) {
-	/* nothing yet */
+	font-style: italic;
 }
 
 
