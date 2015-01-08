@@ -25,6 +25,7 @@ class CommitteeTestCase(TestCase):
 		self.assertTrue(Committee.objects.filter(name=testName, email=testEmail).count() == 1)
 		self.assertEqual(Committee.objects.get(pk=c1.pk), c1)
 		self.assertTrue(c1.members.count() == 0)
+		self.assertIsNone(Committee.objects.get(pk=c1.pk).chair)
 
 	def test_create_new_committee_with_chair(self):
 		m1 = Member.objects.create(username="test", email="test@test.com")
@@ -49,6 +50,7 @@ class CommitteeMembershipTestCase(TestCase):
 		self.assertEqual(m1.committees.first(), c1)
 		self.assertTrue(c1.members.count() == 1)
 		self.assertEqual(c1.members.first(), m1)
+		self.assertIsNotNone(CommitteeMembership.objects.get(member=m1, committee=c1).date_joined)
 
 	def test_multiple_members_in_one_committee(self):
 		m1 = Member.objects.get(username="test1")
@@ -81,11 +83,14 @@ class EventTestCase(TestCase):
 	def test_create_simple_event(self):
 		e1 = Event.objects.create(name="testEvent")
 		self.assertTrue(Event.objects.all().count() == 1)
+		self.assertIsNone(Event.objects.get(name="testEvent").loc)
+		self.assertIsNone(Event.objects.get(name="testEvent").start_time)
 
 	def test_create_detailed_event(self):
 		e1 = Event.objects.create(name="testEvent",loc="123 Happy Pl")
 		self.assertTrue(Event.objects.all().count() == 1)
 		self.assertEqual(Event.objects.get(name="testEvent",loc="123 Happy Pl"), e1)
+		self.assertIsNone(Event.objects.get(name="testEvent").start_time)
 
 class EventLoginTestCase(TestCase):
 
