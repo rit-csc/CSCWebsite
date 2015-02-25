@@ -222,6 +222,9 @@ p.footnote {
 	padding-bottom: 1px;
 	margin-bottom: 10px;
 }
+.event_detail_descriptor {
+    width:125px;
+}
 .social_media_container {
 	float:right;
 	width:370px;
@@ -231,8 +234,6 @@ p.footnote {
 .social_media_container p {
 	/* nothing yet */
 }
-
-
 
 /* ----------------- FOR THE FOOTER ----------------- */
 .footer {

@@ -33,20 +33,40 @@ Computer Science Community at RIT
 		{% for event in events %}
 			<div class="event">
 				<h3>{{ event.summary }}</h3>
-				<div>
-					When: <b> {{ event.start_date }} </b>
-				</div>
-				{% autoescape off %}
-				<div>
-					Where: {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}
-				</div>
-				{% endautoescape %}
-				<div>
-					Start time: <b>{{ event.start_time }}</b>
-				</div>
-				<div>
-					End time: <b>{{ event.end_time }}</b>
-				</div>
+                                <table>
+                    <tr>
+                        <td class="event_detail_descriptor">
+                            When
+                        </td>
+                        <td>
+                            <b> {{ event.start_time }} </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="event_detail_descriptor">
+                            When
+                        </td>
+                        <td>
+                            {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="event_detail_descriptor">
+                            Start Time
+                        </td>
+                        <td>
+                            <b>{{ event.start_time }}</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="event_detail_descriptor">
+                            End Time
+                        </td>
+                        <td>
+                            <b>{{ event.end_time }}</b>
+                        </td>
+                    </tr>
+                </table>
 				<p>
 					<i>{{ event.desc }}</i>
 				</p>
