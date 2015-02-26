@@ -19,7 +19,7 @@ TEMPLATE_DIRS = (
 )
 
 # Reference our custom Member model as the default user model
-AUTH_USER_MODEL = 'member.Member'
+#AUTH_USER_MODEL = 'member.Member'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -28,9 +28,9 @@ AUTH_USER_MODEL = 'member.Member'
 SECRET_KEY = 'pp0_w0sbde9&ye%!*i&!)76nq7-y22fbfpvb9heze*&)8j7dpi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False 
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['.cs.rit.edu']
 
@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'pages',
-	'member',
+#	'member',
 	'django.contrib.webdesign',
 )
 

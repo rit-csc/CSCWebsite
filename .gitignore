@@ -10,3 +10,4 @@ csc_new/csc_new/settings.py
 # PyCharm, WebStorm, etc. (JetBrains)
 .idea/
 .idea
+csc_new/static/

@@ -20,7 +20,9 @@ a:hover {
 	text-decoration: underline;
 	color: orange;
 }
-
+h3{
+	text-decoration: underline;
+}
 
 
 /* ----------------- FOR ABOUT.HTML ----------------- */
@@ -65,6 +67,19 @@ p.footnote {
 	vertical-align: super;
 	font-size: 75%;
 	font-style: oblique;
+}
+.position_quicklinks{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.position_quicklinks a, .position_quicklinks_label{
+    font-size: 75%;
+    display: inline-block;
+    margin-left: 7.5px;
+    margin-right:7.5px;
+}
+.position_quicklinks a{
+    font-style: italic;
 }
 
 
@@ -222,6 +237,9 @@ p.footnote {
 	padding-bottom: 1px;
 	margin-bottom: 10px;
 }
+.event_detail_descriptor {
+    width:125px;
+}
 .social_media_container {
 	float:right;
 	width:370px;
@@ -231,8 +249,6 @@ p.footnote {
 .social_media_container p {
 	/* nothing yet */
 }
-
-
 
 /* ----------------- FOR THE FOOTER ----------------- */
 .footer {

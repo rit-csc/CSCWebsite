@@ -31,17 +31,13 @@ class Member(AbstractUser):
 	# (Use the ManyToMany relationship to return all related committees.)
 	def _committees_member_of(self):
 		return self.committee_set.all()
-
 	committees = property(_committees_member_of)
-
-	# Return all EventLogins for this Member.
-	def event_logins(self):
-		return EventLogin.objects.filter(attendee=self.pk)
 
 	# Events for which this Member has an EventLogin.
 	# (Use the ManyToMany relationship to return all related events.)
-	def events_attended(self):
+	def _events_attended(self):
 		return self.event_set.all()
+	events = property(_events_attended)
 
 # Event - defines an event
 #	name - name of the event
@@ -51,8 +47,8 @@ class Event(models.Model):
 	REQUIRED_FIELDS = ['name']
 
 	name = models.CharField(max_length=80)
-	start_time = models.DateTimeField()
-	loc = models.CharField(max_length=80)
+	start_time = models.DateTimeField(null=True)
+	loc = models.CharField(max_length=80, null=True)
 
 	# ManyToMany relationship, with EventLogin as the intermediate model.
 	# In this way, EventLogin is associated with the ManyToManyField and can
@@ -64,12 +60,12 @@ class Event(models.Model):
 
 # EventLogin - intermediate model used to define the ManyToMany
 # 					relationship between members and events
-#	eventNo - a foreign key to the event signed into
+#	event - a foreign key to the event signed into
 #	attendee - a foreign key to the member who signed in
 class EventLogin(models.Model):
-	REQUIRED_FIELDS = ['eventNo', 'attendee']
+	REQUIRED_FIELDS = ['event', 'attendee']
 
-	eventNo = models.ForeignKey(Event)
+	event = models.ForeignKey(Event)
 	attendee = models.ForeignKey(Member)
 
 	# Can add additional fields here...
