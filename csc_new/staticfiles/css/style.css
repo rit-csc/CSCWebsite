@@ -81,7 +81,12 @@ p.footnote {
 .position_quicklinks a{
     font-style: italic;
 }
-
+.position_quicklinks a.nobio{
+    cursor: default;
+    font-style: normal;
+    text-decoration: none;
+    color: gray;
+}
 
 
 /* ----------------- FOR RESOURCES.HTML ----------------- */
