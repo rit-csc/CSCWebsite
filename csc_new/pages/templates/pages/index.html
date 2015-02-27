@@ -39,15 +39,15 @@ Computer Science Community at RIT
                                 <table>
                     <tr>
                         <td class="event_detail_descriptor">
-                            When
+                            When:
                         </td>
                         <td>
-                            <b> {{ event.start_time }} </b>
+                            <b> {{ event.start_date }} </b>
                         </td>
                     </tr>
                     <tr>
                         <td class="event_detail_descriptor">
-                            When
+                            Where:
                         </td>
                         <td>
                             {% ifequal event.location "TBD" %}<i>TBD</i>{% else %}<b>{{event.location}}</b>{% endifequal %}
@@ -55,7 +55,7 @@ Computer Science Community at RIT
                     </tr>
                     <tr>
                         <td class="event_detail_descriptor">
-                            Start Time
+                            Start Time:
                         </td>
                         <td>
                             <b>{{ event.start_time }}</b>
@@ -63,7 +63,7 @@ Computer Science Community at RIT
                     </tr>
                     <tr>
                         <td class="event_detail_descriptor">
-                            End Time
+                            End Time:
                         </td>
                         <td>
                             <b>{{ event.end_time }}</b>
