@@ -87,6 +87,13 @@ p.footnote {
     text-decoration: none;
     color: gray;
 }
+.position_anchors{
+    position: relative;
+    top:-30px;
+}
+.position_anchors a{
+    display: inline;
+}
 
 
 /* ----------------- FOR RESOURCES.HTML ----------------- */
