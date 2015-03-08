@@ -101,6 +101,9 @@ class RenderableEvents(models.Model):
                 if (len(repeats) <= 0):
                     continue
 
+		if(thing.get('summary') == 'General Meeting!'):
+                    continue
+
                 self.events.append(
                     RenderableEvent(thing.get('summary'), (repeats[0].replace(tzinfo=None)).strftime("%m/%d/%Y"),
                                     (thing.get('dtstart').dt.replace(tzinfo=None)).strftime("%I:%M %p"),
