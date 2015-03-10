@@ -1,25 +1,13 @@
 <div class="github_repo">
 	<div>
 		<div>
-			[<code>{{language}}</code>]
+			<a href="{{html_url}}">{{name}}</a>
 		</div>
 		<div>
-			{{name}}
+			[<code>{{language}}</code>]
 		</div>
 	</div>
-	<div>
-		(<a href="{{html_url}}">src</a>)
-		{% if has_pages %}
-		(<a href="http://rit-csc.github.io/{{name}}">gh-pages</a>)
-		{% endif %}
-	</div>
-	<div>
-		{% if description %}
-		{{description}}
-		{% else %}
-		No description.
-		{% endif %}
-	</div>
+	<div>{{description}}</div>
+	<div>{{misc_info}}</div>
 </div>
-
 <div class="space"></div>
