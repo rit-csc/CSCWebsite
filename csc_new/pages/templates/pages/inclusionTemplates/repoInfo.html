@@ -1,4 +1,5 @@
 <div class="github_repo">
+
 	<div>
 		<div>
 			<a href="{{html_url}}">{{name}}</a>
@@ -7,7 +8,20 @@
 			[<code>{{language}}</code>]
 		</div>
 	</div>
-	<div>{{description}}</div>
-	<div>{{misc_info}}</div>
+
+	<div>
+		{% if description %}
+			{{description}}
+		{% else %}
+			No description.
+		{% endif %}
+	</div>
+
+	{% if misc_info %}
+	<div>
+		{{misc_info}}
+	</div>
+	{% endif %}
+
 </div>
 <div class="space"></div>

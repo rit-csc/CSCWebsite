@@ -2,7 +2,8 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 
-import requests
+import urllib
+import json
 
 from pages.models import *
 from csc_new import settings
@@ -55,10 +56,18 @@ def projects(request):
 
     try:
         api_url = "https://api.github.com/orgs/rit-csc/repos"
-        r = requests.get(api_url)
+        # get the http response
+        httpresponse = urllib.request.urlopen(api_url)
+        # read the data
+        data = httpresponse.read().decode("utf-8")
+        # close the connection
+        httpresponse.close()
+
+        # convert the data to a json object
+        data_as_json = json.loads(data)
 
         # Sort repos by last_updated, with the most recently-updated repos first.
-        repos = sorted(r.json(), key=lambda repo:repo['updated_at'], reverse=True)
+        repos = sorted(data_as_json, key=lambda repo:repo['updated_at'], reverse=True)
 
         return render_to_response(template, {"success":True, "repos":repos,
                                                 'MEDIA_URL':settings.MEDIA_URL,
