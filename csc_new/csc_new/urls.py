@@ -17,9 +17,9 @@ urlpatterns = patterns('',
     url(r'^admin', include(admin.site.urls)),
 	
 	#Custom stuff GOES HERE
-	url(r'^resources', views.resources),
-	url(r'^pictures', views.pictures),
-	url(r'^projects', views.projects),
+	url(r'^resources/$', views.resources),
+	url(r'^pictures/$', views.pictures),
+	url(r'^projects/$', views.projects),
 	
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

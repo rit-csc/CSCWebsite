@@ -30,15 +30,15 @@ function updateStyle(){
 	var menu = location.pathname;
 	if (menu == "/") {
     	setActive("index");
-	} else if (menu == "/about") {
+	} else if (menu.match("/about(/)?")) {
     	setActive("about");
-	} else if (menu == "/projects") {
+	} else if (menu.match("/projects(/)?")) {
     	setActive("projects");
-	} else if (menu == "/calendar") {
+	} else if (menu.match("/calendar(/)?")) {
     	setActive("calendar");
-	} else if (menu == "/resources") {
+	} else if (menu.match("/resources(/)?")) {
     	setActive("resources");
-	} else if (menu == "/pictures") {
+	} else if (menu.match("/pictures(/)?")) {
 		setActive("pictures");
 	}
 }
@@ -46,5 +46,10 @@ function updateStyle(){
 function setActive(id){
     elem = document.getElementById(id);
     curr = elem.getAttribute("class");
-    elem.setAttribute("class", curr+" active");
+    if ( curr == null ) {
+        elem.setAttribute("class", "active");
+    } else {
+        elem.setAttribute("class", curr+" active");
+    }
+
 }
