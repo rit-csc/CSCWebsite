@@ -129,6 +129,14 @@ p.footnote {
 	margin-left: 1in;
 }
 
+.slides > span {
+    margin-right: 20px;
+}
+
+/* CSS3 negation psuedo-class (@see stackoverflow.com/questions/2573544) */
+.slides:not(:last-child) {
+    margin-bottom: 10px;
+}
 
 
 /* ----------------- FOR PICTURES.HTML ----------------- */

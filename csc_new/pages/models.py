@@ -27,6 +27,23 @@ class ExamReview(models.Model):
         super(ExamReview, self).delete(*args, **kwargs)
 
 
+class GeneralMeetingSlides(models.Model):
+    date = models.DateField()
+    pdf = models.FileField(upload_to="general_meeting_slides", verbose_name="PDF")
+
+    class Meta:
+        verbose_name = "General Meeting Slides"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.date.__str__()
+
+    def delete(self, *args, **kwargs):
+        # this is broken (the delete doesn't work; the file lingers in MEDIA_ROOT)
+        os.remove(os.path.join(settings.MEDIA_ROOT, str(self.pdf)))
+        super(GeneralMeetingSlides, self).delete(*args, **kwargs)
+
+
 class Photo(models.Model):
     title = models.CharField(max_length=100)
     desc = models.CharField(max_length=255)
