@@ -46,6 +46,17 @@ CSC Exam Reviews and other resources.
 	</div>
 {% endfor %}
 
+<h2 id="gm_slides">General Meeting Slides</h2>
+{% for week in slides %}
+    <div class="slides">
+        <span> <a href="media/{{ week.pdf }}"> {{ week.date }} </a> </span>
+    </div>
+{% empty %}
+    <div>
+        General Meeting Slides will be posted as the meetings occur throughout the semester.
+    </div>
+{% endfor %}
+
 <h2>Other Resources</h2>
 <div class="exam">
     <a href="http://cs.rit.edu/~ritcsc-workshop/resources/">Workshop Resources</a>

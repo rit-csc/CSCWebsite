@@ -34,9 +34,10 @@ def index(request):
 def resources(request):
     template = loader.get_template("pages/resources.html")
     context = RequestContext(request, {
-        'exams':ExamReview.objects.all(),
-        'MEDIA_URL':settings.MEDIA_URL,
-        'img_list':Photo.objects.values_list('src', flat=True),
+        'exams': ExamReview.objects.all(),
+        'MEDIA_URL': settings.MEDIA_URL,
+        'img_list': Photo.objects.values_list('src', flat=True),
+        'slides': GeneralMeetingSlides.objects.all(),
     })
     return HttpResponse(template.render(context))
 
