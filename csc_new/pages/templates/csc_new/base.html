@@ -28,13 +28,13 @@
 		<div>
 			<!-- Carousel -->
 			<div id="carousel">
-				<span id="logo"><img src="{% static 'imgs/logo.png' %}" title="Computer Science Community"></span>
+				<span id="logo"><img src="{% static 'imgs/logo.png' %}" title="" alt=""></span>
 				<span id="text">
 					<p>{% block title %}{% endblock %}</p>
 					<p>{% block desc %}{% endblock %}</p>
 				</span>
 				{% for img in img_list %}
-					<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}" title="{{img.title}}"/></div>
+					<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}" title="" alt=""/></div>
 				{% endfor %}
 			</div>
 			
