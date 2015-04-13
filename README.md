@@ -1,8 +1,5 @@
 # RIT Computer Science Community Website
 
-The source code repository for the [CSC](https://csc.cs.rit.edu)'s open-sourced website!
-![XKCD "Mispronouncing"](http://imgs.xkcd.com/comics/mispronouncing.png)
-
 ### Contributing
 
 ##### Getting a copy
