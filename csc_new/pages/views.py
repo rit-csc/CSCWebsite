@@ -8,7 +8,10 @@ from csc_new import settings
 # Create your views here.
 
 def generic(request):
-    template = loader.get_template("pages%s.html" % request.path)
+    request_path_string = str(request.path)
+    if request_path_string[-1] == "/":
+        request_path_string = request_path_string[0:-1]
+    template = loader.get_template("pages%s.html" % request_path_string)
     context = RequestContext(request, {
         'MEDIA_URL': settings.MEDIA_URL,
         'img_list': Photo.objects.values_list('src', flat=True),
