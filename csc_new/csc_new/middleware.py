@@ -1,5 +1,5 @@
 from django.template import TemplateDoesNotExist
-from django.views.defaults import page_not_found
+from django.shortcuts import render_to_response
 
 class TemplateDoesNotExistMiddleware(object):
     """
@@ -8,4 +8,5 @@ class TemplateDoesNotExistMiddleware(object):
     """
     def process_exception(self, request, exception):
         if isinstance(exception, TemplateDoesNotExist):
-            return page_not_found(request)
+            template = "pages/404.html"
+            return render_to_response(template, {"request": request})

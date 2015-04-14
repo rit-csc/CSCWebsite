@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csc_new.template_dne_to_404.TemplateDoesNotExistMiddleware',
+    'csc_new.middleware.TemplateDoesNotExistMiddleware',
 )
 
 ROOT_URLCONF = 'csc_new.urls'

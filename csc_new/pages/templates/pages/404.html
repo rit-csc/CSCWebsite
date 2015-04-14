@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
+    <style>
+        .background-image {
+            opacity: 0.2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .background-image img {
+            width: 60vw;
+            height: auto;
+        }
+    </style>
+</head>
+
+<div class="background-image">
+    <img src="{% static 'imgs/logo.png' %}">
+</div>
+<h1>404 - Not Found</h1>
+<p>The page "<b>{{ request.path }}</b>" was not found on our site.</p>
+<p>
+    If you believe this is an error, please contact the Computer Science Community Systems Administrator at
+    <a href="mailto:admin@csc.cs.rit.edu">this address</a>.
+</p>
+<br/>
+<p>
+    <a href="/">Back to safety</a>
+</p>
