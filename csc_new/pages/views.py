@@ -8,9 +8,14 @@ from csc_new import settings
 # Create your views here.
 
 def generic(request):
+    
     request_path_string = str(request.path)
     if request_path_string[-1] == "/":
+        # a trailing slash in a URL can cause issues with
+        # resolving the URL, especially for templates.
+        # If there is a trailing slash, we remove it here.
         request_path_string = request_path_string[0:-1]
+
     template = loader.get_template("pages%s.html" % request_path_string)
     context = RequestContext(request, {
         'MEDIA_URL': settings.MEDIA_URL,

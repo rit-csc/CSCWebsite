@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic.base import RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
@@ -16,7 +15,11 @@ urlpatterns = patterns('',
 	url(r'^$', views.index),
     url(r'^admin', include(admin.site.urls)),
 	
-	#Custom stuff GOES HERE
+	# Custom stuff GOES HERE
+
+    # Note that "/?" at the end means a trailing
+    # slash at the end of the URL can be included
+    # but is not required.
 	url(r'^resources/?$', views.resources),
 	url(r'^pictures/?$', views.pictures),
 	url(r'^projects/?$', views.projects),
