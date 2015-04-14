@@ -277,4 +277,19 @@ p.footnote {
 	float: right;
 }
 
+/* ----------------- FOR 404.html -----------------*/
+.background-image {
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    max-height: 100%;
+    max-width: 100%;
+}
+.background-image img {
+    width: 60vw;
+    height: auto;
+}
+
 
