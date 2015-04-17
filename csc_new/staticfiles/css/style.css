@@ -129,6 +129,14 @@ p.footnote {
 	margin-left: 1in;
 }
 
+.slides > span {
+    margin-right: 20px;
+}
+
+/* CSS3 negation psuedo-class (@see stackoverflow.com/questions/2573544) */
+.slides:not(:last-child) {
+    margin-bottom: 10px;
+}
 
 
 /* ----------------- FOR PICTURES.HTML ----------------- */
@@ -169,7 +177,7 @@ p.footnote {
 
 /* div containing repo title, link, and language stats */
 .github_repo > div:nth-of-type(1) {
-	width:300px;
+	padding-bottom: 15px;
 }
 
 /* repo title and link */
@@ -184,6 +192,7 @@ p.footnote {
 /* repo language stats */
 .github_repo > div:nth-of-type(1) > div:nth-of-type(2) {
 	float:right;
+	text-align: right;
 	width:30%;
 }
 
@@ -291,5 +300,4 @@ p.footnote {
     width: 60vw;
     height: auto;
 }
-
 
