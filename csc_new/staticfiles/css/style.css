@@ -285,7 +285,7 @@ p.footnote {
 }
 
 /* ----------------- FOR 404.html -----------------*/
-img {
+.opaque img {
     opacity: 0.2;
     max-height: 100%;
     max-width: 100%;

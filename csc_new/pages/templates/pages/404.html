@@ -13,9 +13,14 @@
 
     <h1>404 - Page Not Found</h1>
 
-    <img src="{% static 'imgs/logo.png' %}">
+    <div class="opaque"><img src="{% static 'imgs/logo.png' %}"></div>
 
-    <p>The page "<b>{{ request.path }}</b>" was not found on our site.</p>
+    {% ifequal request.path null %}
+        <p>The page "404" was not found on our site.</p>
+    {% else %}
+        <p>The page "<b>{{ request.path }}</b>" was not found on our site.</p>
+    {% endifequal %}
+
 
     <p>
         If you believe this is an error, please contact the Computer Science Community Systems Administrator
