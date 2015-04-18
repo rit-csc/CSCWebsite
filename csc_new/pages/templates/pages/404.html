@@ -1,30 +1,31 @@
-<!DOCTYPE html>
 
+{% extends "csc_new/core.html" %}
 {% load static %}
 
 {% block head %}
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
+<title>404 - RIT Computer Science Community</title>
+{% endblock %}
+
+{% block pre-nav %}
 {% endblock %}
 
 {% block content %}
 
-    <div class="background-image">
-        <img src="{% static 'imgs/logo.png' %}">
-    </div>
+    <h1>404 - Page Not Found</h1>
 
-    <h1>404 - Not Found</h1>
+    <img src="{% static 'imgs/logo.png' %}">
 
     <p>The page "<b>{{ request.path }}</b>" was not found on our site.</p>
 
     <p>
-        If you believe this is an error, please contact the Computer Science Community Systems Administrator at
-        <a href="mailto:admin@csc.cs.rit.edu">this address</a>.
+        If you believe this is an error, please contact the Computer Science Community Systems Administrator
+        <a href="mailto:admin@csc.cs.rit.edu">here</a>.
     </p>
 
     <br/>
 
     <p>
-        <a href="/">Back to safety</a>
+        <a href="/">Back to safety.</a>
     </p>
 
 {% endblock %}
