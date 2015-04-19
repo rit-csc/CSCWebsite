@@ -16,7 +16,7 @@
     <img class="transparent" src="{% static 'imgs/logo.png' %}">
 
     {% ifequal request.path null %}
-        <p>The page "404" was not found on our site.</p>
+        <p>The page <b>"/404"</b> was not found on our site.</p>
     {% else %}
         <p>The page "<b>{{ request.path }}</b>" was not found on our site.</p>
     {% endifequal %}
