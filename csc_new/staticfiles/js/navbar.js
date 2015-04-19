@@ -1,50 +1,62 @@
-window.addEventListener("scroll", updatePos);
-
-function updatePos(){
-	var navbar = document.getElementById('csc-navbar');
-	var carousel = document.getElementById('carousel');
-
-	var pos = carousel.getBoundingClientRect().bottom;
-
-	if(pos <= 0){
-
-		navbar.style.position = "fixed";
-		navbar.style.top = "0px";
-
-		// carousel.style.marginBottom = String(
-		// 	Number(document.getElementByClassName("space")[0].style.height) +
-		// 	Number(navbar.getBoundingClientRect().height))
-		// 	+ "px"
-
-		// below should would ideally not be hard-coded in but apparently even jQuery can't get the height correct...
-		carousel.style.marginBottom = "44px"; // this is the effective height of the navbar
-
-	} else {
-		navbar.style.position = "static";
-		navbar.style.top = carousel.style.height;
-		carousel.style.marginBottom = "0px";
-	}
-}
-
-function updateStyle(){
+function updateStyle() {
 	var menu = location.pathname;
 	if (menu == "/") {
     	setActive("index");
-	} else if (menu == "/about") {
+	} else if (menu.match("/about(/)?")) {
     	setActive("about");
-	} else if (menu == "/projects") {
+	} else if (menu.match("/projects(/)?")) {
     	setActive("projects");
-	} else if (menu == "/calendar") {
+	} else if (menu.match("/calendar(/)?")) {
     	setActive("calendar");
-	} else if (menu == "/resources") {
+	} else if (menu.match("/resources(/)?")) {
     	setActive("resources");
-	} else if (menu == "/pictures") {
+	} else if (menu.match("/pictures(/)?")) {
 		setActive("pictures");
 	}
 }
 
-function setActive(id){
+function setActive(id) {
     elem = document.getElementById(id);
-    curr = elem.getAttribute("class");
-    elem.setAttribute("class", curr+" active");
+    $(elem).addClass("active");
 }
+
+$(document).ready(function() {
+
+	var manageStickyNav = (function() {
+
+		var navbar = $("#csc-navbar").get(0);
+
+		var navPlaceholder = $( "<div id=\"navPlaceholder\"></div>" );
+		navPlaceholder.insertBefore($(navbar));
+
+		var navHeight = $(navbar).innerHeight();
+
+		var makeSticky = function() {
+			navbar.style.position = "fixed";
+			navbar.style.top = "0px";
+
+			// this is the effective height of the navbar
+			navPlaceholder.css("marginBottom", navHeight + "px");
+		};
+
+		var removeSticky = function() {
+			navbar.style.position = "static";
+			navbar.style.top = navPlaceholder.height();
+			navPlaceholder.css("marginBottom", "0px");
+		};
+
+		return function() {
+			var pos = navPlaceholder.get(0).getBoundingClientRect().bottom;
+
+			if(pos <= 0){
+				makeSticky();
+			} else {
+				removeSticky();
+			}
+		};
+	}());
+
+	window.addEventListener("scroll", function() {
+		manageStickyNav();
+	});
+});

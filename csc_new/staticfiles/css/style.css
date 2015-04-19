@@ -72,7 +72,7 @@ p.footnote {
     text-align: center;
     margin-bottom: 20px;
 }
-.position_quicklinks a, .position_quicklinks_label{
+.position_quicklinks a, .label{
     font-size: 75%;
     display: inline-block;
     margin-left: 7.5px;
@@ -99,7 +99,6 @@ p.footnote {
 /* ----------------- FOR RESOURCES.HTML ----------------- */
 
 .exam {
-	/* nothing yet */
 	height: 1.3em;
 	text-align: middle;
 	margin-bottom: 10px;
@@ -133,7 +132,6 @@ p.footnote {
     margin-right: 20px;
 }
 
-/* CSS3 negation psuedo-class (@see stackoverflow.com/questions/2573544) */
 .slides:not(:last-child) {
     margin-bottom: 10px;
 }
@@ -284,5 +282,12 @@ p.footnote {
 
 .footer > p:nth-of-type(2) {
 	float: right;
+}
+
+/* ----------------- FOR 404.html -----------------*/
+img.transparent {
+    opacity: 0.2;
+    max-height: 100%;
+    max-width: 100%;
 }
 

@@ -1,96 +1,23 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		{% load static %}
 
-		<!-- Our Style -->
-		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
-		<link href="{% static 'css/csc-navbar.css' %}" rel="stylesheet" media="screen">
-		<link href="{% static 'css/csc-carousel.css' %}" rel="stylesheet" media="screen">
+{% extends "csc_new/core.html" %}
+{% load static %}
 
-		<!-- CSC icon file -->
-		<link rel="SHORTCUT ICON" href="{% static 'imgs/logo.ico' %}">
+{% block head %}
+{% endblock %}
 
-		<!-- CSS/JS stuff for the Facebook plugin -->
-		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+{% block pre-nav %}
+<!-- Carousel -->
+<div id="carousel">
+	<span id="logo"><img src="{% static 'imgs/logo.png' %}" title="" alt=""></span>
+	<span id="text">
+		<p>{% block title %}{% endblock %}</p>
+		<p>{% block desc %}{% endblock %}</p>
+	</span>
+	{% for img in img_list %}
+		<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}" title="" alt=""/></div>
+	{% endfor %}
+</div>
+{% endblock %}
 
-		<!-- Our Javascript -->
-		<script src="{% static 'js/navbar.js' %}"></script>
-		<script src="{% static 'js/csc-carousel.js' %}"></script>
-
-
-		{% block head %}
-		{% endblock %}
-	</head>
-	<body>
-		<div>
-			<!-- Carousel -->
-			<div id="carousel">
-				<span id="logo"><img src="{% static 'imgs/logo.png' %}" title="" alt=""></span>
-				<span id="text">
-					<p>{% block title %}{% endblock %}</p>
-					<p>{% block desc %}{% endblock %}</p>
-				</span>
-				{% for img in img_list %}
-					<div class="carousel-img"><img src="{{MEDIA_URL}}{{img}}" title="" alt=""/></div>
-				{% endfor %}
-			</div>
-			
-			<!-- Nav bar -->
-			<div id="csc-navbar">
-				<a href="/" id="index">
-					<div class="csc-navbar-button">
-						HOME
-					</div>
-				</a>
-				<a href="/about" id="about">
-					<div class="csc-navbar-button">
-						ABOUT
-					</div>
-				</a>
-				<a href="/projects" id="projects">
-					<div class="csc-navbar-button">
-						PROJECTS
-					</div>
-				</a>
-				<a href="/calendar"  id="calendar">
-					<div class="csc-navbar-button">
-						CALENDAR
-					</div>
-				</a>
-				<a href="/resources" id="resources">
-					<div class="csc-navbar-button">
-						RESOURCES
-					</div>
-				</a>
-				<a href="/pictures" id="pictures">
-					<div class="csc-navbar-button">
-						PICTURES
-					</div>
-				</a>
-			</div>
-			<script type="text/javascript">updateStyle()</script>
-			
-			<!-- Content -->
-			<div style="overflow: hidden">
-				{% block content %}
-				{% endblock %}
-
-				<div class="space"></div>
-			</div>
-			<div class="footer">
-				<hr />
-				<p>
-					Send Feedback: <a href="mailto:officers@csc.cs.rit.edu">officers@csc.cs.rit.edu</a>
-				</p>
-				<p>
-					Join the Website Committee: <a href="mailto:committee.projects@csc.cs.rit.edu">committee.projects@csc.cs.rit.edu</a>
-				</p>
-				<div class="space"></div>
-				<div class="space"></div>
-			</div>
-		</div>
-	</body>
-</html>
+{% block content %}
+{% endblock %}
