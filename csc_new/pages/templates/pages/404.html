@@ -13,7 +13,7 @@
 
     <h1>404 - Page Not Found</h1>
 
-    <div class="opaque"><img src="{% static 'imgs/logo.png' %}"></div>
+    <img class="transparent" src="{% static 'imgs/logo.png' %}">
 
     {% ifequal request.path null %}
         <p>The page "404" was not found on our site.</p>
