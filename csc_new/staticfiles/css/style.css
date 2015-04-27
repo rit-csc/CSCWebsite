@@ -24,11 +24,11 @@ h3{
 	text-decoration: underline;
 }
 
-.left {
-	float: left;
-}
-.right {
+.lr_alt > :nth-child(even) {
 	float: right;
+}
+.lr_alt > :nth-child(odd) {
+	float: left;
 }
 
 
@@ -231,11 +231,7 @@ p.footnote {
 
 
 /* ----------------- FOR INDEX.HTML ----------------- */
-.img_carousel {
-	height: 300px;
-}
 .events_container {
-	float:left;
 	width:600px;
 	padding-bottom: 15px;
 }
@@ -251,13 +247,9 @@ p.footnote {
     width:125px;
 }
 .social_media_container {
-	float:right;
 	width:370px;
 	padding-left:30px;
 	z-index: -1;
-}
-.social_media_container p {
-	/* nothing yet */
 }
 
 /* ----------------- FOR THE FOOTER ----------------- */
