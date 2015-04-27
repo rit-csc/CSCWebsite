@@ -1,3 +1,4 @@
+/* site-wide defaults */
 
 body {
 	width: 1000px;
@@ -10,18 +11,24 @@ div.space {
 	padding:15px;
 }
 
-/* Default link style. */
 a {
 	text-decoration: none;
 	color: blue;
 }
-/* Emphasize links on hover. */
 a:hover {
 	text-decoration: underline;
 	color: orange;
 }
+
 h3{
 	text-decoration: underline;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
 }
 
 
@@ -36,14 +43,12 @@ h3{
 
 /* div containing bio text */
 .bio > div:nth-of-type(1) {
-	float:left;
 	max-width: 850px;
 	text-align: justify;
 }
 
 /* div containing bio image */
 .bio > div:nth-of-type(2) {
-	float:right;
 	width:100px;
 }
 .bio img {
@@ -52,16 +57,11 @@ h3{
 	margin-top: 50%;
 }
 .our_mission {
-	padding-right: 15px;
-	padding-left: 15px;
+	padding: 1px 15px 5px;
+	margin: 0px auto 30px;
 	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 30px;
 	max-width: 55%;
 	background-color: #ECF6FF;
-	padding-bottom: 5px;
-	padding-top: 1px;
 }
 p.footnote {
 	vertical-align: super;
@@ -105,25 +105,23 @@ p.footnote {
 }
 
 /* the exam title */
-.exam > div:nth-of-type(1) {
-	float:left;
+.exam > div.title {
 	width: 25%;
 }
 
 /* contains links to questions and answers files */
-.exam > div:nth-of-type(2) {
-	float:right;
+.exam > div.files {
 	width:75%;
 }
 
 /* contains either a link to the questions OR a link to the answers */
-.exam > div:nth-of-type(2) > div {
+.exam > div.files > div {
 	max-width:50%;
 	display: inline;
 }
 
 /* contains info about last-modified date */
-.exam > div:nth-of-type(2) > div:last-of-type {
+.exam > div.files > div:last-of-type {
 	font-style: italic;
 	margin-left: 1in;
 }
@@ -170,40 +168,35 @@ p.footnote {
 .github_repo {
 	text-decoration: none;
 	padding:15px;
+	margin-top:15px;
 	background-color: #E6E6E6;
 }
 
-/* div containing repo title, link, and language stats */
-.github_repo > div:nth-of-type(1) {
+/* div containing repo title/link and language stats */
+.github_repo > div:first-of-type {
 	padding-bottom: 15px;
 }
 
-/* repo title and link */
-.github_repo > div:nth-of-type(1) > div:nth-of-type(1) {
-	float:left;
-	width:70%;
+.github_repo > div {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
-.github_repo > div:nth-of-type(1) > div:nth-of-type(1) a {
+
+/* repo title and link */
+.github_repo > div > div.title {
+	width:70%;
 	font-weight: bold;
 }
 
 /* repo language stats */
-.github_repo > div:nth-of-type(1) > div:nth-of-type(2) {
-	float:right;
+.github_repo > div > div.language {
 	text-align: right;
 	width:30%;
 }
 
 /* div containing repo description */
-.github_repo > div:nth-of-type(2) {
+.github_repo > div.description {
 	font-style: italic;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-/* div containing repo misc info */
-.github_repo > div:nth-of-type(3) {
-	/* nothing yet */
 }
 
 
@@ -268,20 +261,8 @@ p.footnote {
 }
 
 /* ----------------- FOR THE FOOTER ----------------- */
-.footer {
-	/* nothing yet */
-}
-
 .footer p {
 	display: inline;
-}
-
-.footer > p:nth-of-type(1) {
-	float: left;
-}
-
-.footer > p:nth-of-type(2) {
-	float: right;
 }
 
 /* ----------------- FOR 404.html -----------------*/

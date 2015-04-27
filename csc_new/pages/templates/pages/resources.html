@@ -22,8 +22,8 @@ CSC Exam Reviews and other resources.
 <h2>Exam Reviews</h2>
 {% for exam in exams %}
 	<div class="exam">
-		<div> {{ exam.title }} </div>
-		<div>
+		<div class="title left"> {{ exam.title }} </div>
+		<div class="files right">
 			<div>
 				<a href="media/{{ exam.questions }}">
 					Questions
@@ -58,7 +58,7 @@ CSC Exam Reviews and other resources.
 {% endfor %}
 
 <h2>Other Resources</h2>
-<div class="exam">
+<div>
     <a href="http://cs.rit.edu/~ritcsc-workshop/resources/">Workshop Resources</a>
 </div>
 
