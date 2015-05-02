@@ -1,15 +1,15 @@
 <div class="github_repo">
 
-	<div>
-		<div>
+	<div class="lr_alt">
+		<div class="title">
 			<a href="{{html_url}}">{{name}}</a>
 		</div>
-		<div>
+		<div class="language">
 			[<code>{{language}}</code>]
 		</div>
 	</div>
 
-	<div>
+	<div class="description">
 		{% if description %}
 			{{description}}
 		{% else %}
@@ -18,10 +18,9 @@
 	</div>
 
 	{% if misc_info %}
-	<div>
+	<div class="misc_info">
 		{{misc_info}}
 	</div>
 	{% endif %}
 
 </div>
-<div class="space"></div>
