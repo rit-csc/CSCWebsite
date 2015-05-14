@@ -12,7 +12,6 @@ To clone the repo run the following command:
 
 Once you've done that, uncomment the following lines in `settings.py`:
 
-
     #AUTH_USER_MODEL = 'member.Member'
     ...
     #   'member',
