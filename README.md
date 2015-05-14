@@ -4,14 +4,29 @@
 
 ##### Cloning and running your own copy
 
-    git clone git@github.com:rit-csc/CSCWebsite
+In order to make a contribution, you'll need to clone and test your changes.
+
+To clone the repo run the following command:
+
+    git clone https://github.com/rit-csc/CSCWebsite
+
+Once you've done that, uncomment the following lines in `settings.py`:
+
+
+    #AUTH_USER_MODEL = 'member.Member'
+    ...
+    #   'member',
+
+Then run the server using the following command:
+
+    python3 manage.py runserver
 
 ##### Dependencies & Frameworks
 
 * [Python 3.3 or higher](https://www.python.org/download/releases/3.3.0/)
-* [Django 1.6](https://www.djangoproject.com/) -- backend
+* [Django 1.7](https://www.djangoproject.com/) -- backend
 
-    ```pip3 install django==1.6```
+    ```pip3 install django==1.7```
 
 * [icalendar](http://icalendar.readthedocs.org/en/latest/) -- for calendar stuff
 
