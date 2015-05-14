@@ -2,16 +2,16 @@
 
 ### Contributing
 
-##### Getting a copy
+##### Cloning and running your own copy
 
-    git clone https://github.com/rit-csc/CSCWebsite
+    git clone git@github.com:rit-csc/CSCWebsite
 
 ##### Dependencies & Frameworks
 
 * [Python 3.3 or higher](https://www.python.org/download/releases/3.3.0/)
-* [Django](https://www.djangoproject.com/) -- backend
+* [Django 1.6](https://www.djangoproject.com/) -- backend
 
-    ```pip3 install Django```
+    ```pip3 install django==1.6```
 
 * [icalendar](http://icalendar.readthedocs.org/en/latest/) -- for calendar stuff
 
