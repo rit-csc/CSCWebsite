@@ -28,9 +28,9 @@ TEMPLATE_DIRS = (
 SECRET_KEY = 'pp0_w0sbde9&ye%!*i&!)76nq7-y22fbfpvb9heze*&)8j7dpi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True#False
+DEBUG = False
 
-TEMPLATE_DEBUG = True#False
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['.cs.rit.edu']
 
