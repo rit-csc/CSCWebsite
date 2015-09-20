@@ -11,3 +11,4 @@ csc_new/csc_new/settings.py
 .idea/
 .idea
 csc_new/static/
+*.swp

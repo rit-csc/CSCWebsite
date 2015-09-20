@@ -42,7 +42,7 @@ def index(request):
 def resources(request):
     template = loader.get_template("pages/resources.html")
     context = RequestContext(request, {
-        'exams': ExamReview.objects.all(),
+        'exams': ExamReview.objects.all().order_by("last_modified").reverse(),
         'MEDIA_URL': settings.MEDIA_URL,
         'img_list': Photo.objects.values_list('src', flat=True),
         'slides': GeneralMeetingSlides.objects.all(),
