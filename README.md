@@ -23,9 +23,9 @@ Then run the server using the following command:
 ##### Dependencies & Frameworks
 
 * [Python 3.3 or higher](https://www.python.org/download/releases/3.3.0/)
-* [Django 1.7](https://www.djangoproject.com/) -- backend
+* [Django](https://www.djangoproject.com/) -- backend
 
-    ```pip3 install django==1.7```
+    ```pip3 install django```
 
 * [icalendar](http://icalendar.readthedocs.org/en/latest/) -- for calendar stuff
 
