@@ -10,11 +10,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # http://stackoverflow.com/questions/15491727/include-css-and-javascript-in-my-django-template
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
 	url(r'^$', views.index),
     url(r'^admin', include(admin.site.urls)),
-	
+
 	# Custom stuff GOES HERE
 
     # Note that "/?" at the end means a trailing
@@ -24,7 +24,7 @@ urlpatterns = patterns('',
 	url(r'^pictures/?$', views.pictures),
 	url(r'^projects/?$', views.projects),
 
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
 
