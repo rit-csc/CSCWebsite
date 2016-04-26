@@ -14,9 +14,26 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Template Directories
-TEMPLATE_DIRS = (
-    'csc_new/templates',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS' : [
+            'csc_new/templates',
+        ],
+        'APP_DIRS' : True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 # Reference our custom Member model as the default user model
 #AUTH_USER_MODEL = 'member.Member'
@@ -41,12 +58,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sessions',
     'django.contrib.staticfiles',
+
 	'pages',
 #	'member',
-	'django.contrib.webdesign',
 )
 
 MIDDLEWARE_CLASSES = (
