@@ -64,6 +64,7 @@ INSTALLED_APPS = (
 
 	'pages',
 #	'member',
+	'email_obfuscator',
 )
 
 MIDDLEWARE_CLASSES = (

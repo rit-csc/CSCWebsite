@@ -2,6 +2,7 @@
 <html>
 	<head>
 		{% load static %}
+		{% load email_obfuscator %}
 
 		<!-- Our Style -->
 		<link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
@@ -75,10 +76,10 @@
 				<hr />
 				<div class="lr_alt">
 					<p>
-						Send Feedback: <a href="mailto:officers@csc.cs.rit.edu">officers@csc.cs.rit.edu</a>
+						Send Feedback: {{ 'officers@csc.cs.rit.edu'|obfuscate_mailto }}
 					</p>
 					<p>
-						Join the Website Committee: <a href="mailto:committee.projects@csc.cs.rit.edu">committee.projects@csc.cs.rit.edu</a>
+						Join the Website Committee: {{ 'committee.projects@csc.cs.rit.edu'|obfuscate_mailto }}
 					</p>
 				</div>
 			</div>

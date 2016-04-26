@@ -1,6 +1,7 @@
 
 {% extends "csc_new/core.html" %}
 {% load static %}
+{% load email_obfuscator %}
 
 {% block head %}
 <title>404 - RIT Computer Science Community</title>
@@ -24,7 +25,7 @@
 
     <p>
         If you believe this is an error, please contact the Computer Science Community Systems Administrator
-        <a href="mailto:admin@csc.cs.rit.edu">here</a>.
+        {{ 'admin@csc.cs.rit.edu'|obfuscate_mailto:"here" }}.
     </p>
 
     <br/>

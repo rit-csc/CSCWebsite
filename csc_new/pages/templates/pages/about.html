@@ -1,6 +1,7 @@
 
 {% extends "csc_new/base.html" %}
 {% load static %}
+{% load email_obfuscator %}
 
 {% block head %}
 <title>About - RIT Computer Science Community</title>
@@ -27,7 +28,7 @@ Who we are and what we're all about.
 		For more details, please see <a href="https://github.com/rit-csc/constitution/blob/master/constitution.md">our constitution</a>.
 	</p>
 	<p>
-		Below, you can find the name, bio, and contact email for each of our current executive board members. <!-- Want to contact the entire e-board? Message us at <i><a href="mailto:officers@csc.cs.rit.edu">officers@csc.cs.rit.edu</a></i>. -->
+		Below, you can find the name, bio, and contact email for each of our current executive board members. <!-- Want to contact the entire e-board? Message us at <i>{{ 'officers@csc.cs.rit.edu'|obfuscate_mailto }}</i>. -->
 	</p>
 </div>
 
@@ -68,7 +69,7 @@ Who we are and what we're all about.
 <div class="bio lr_alt">
 	<div>
 		<h2>Chris Lydic</h2>
-		<p><i>President</i> - <a href="mailto:president@csc.cs.rit.edu">president@csc.cs.rit.edu</a></p>
+		<p><i>President</i> - {{ 'president@csc.cs.rit.edu'|obfuscate_mailto }}</p>
 		<p>
 			I'm a second year Computer Science major interested in game design, web design, and digital art.
 		</p>
@@ -85,7 +86,7 @@ Who we are and what we're all about.
 <div class="bio lr_alt">
 	<div>
 		<h2>Zack Zatkin-Gold</h2>
-		<p><i>System Administrator</i> - <a href="mailto:admin@csc.cs.rit.edu">admin@csc.cs.rit.edu</a></p>
+		<p><i>System Administrator</i> - {{ 'admin@csc.cs.rit.edu'|obfuscate_mailto }}</a></p>
 		<p>
             I'm a fifth year Computer Science student who enjoys rock climbing, running, traveling, and photography.
 		</p>
@@ -102,7 +103,7 @@ Who we are and what we're all about.
 <div class="bio lr_alt">
 	<div>
 		<h2>Gavin Nishizawa</h2>
-		<p><i>Treasurer</i> - <a href="mailto:treasurer@csc.cs.rit.edu">treasurer@csc.cs.rit.edu</a></p>
+		<p><i>Treasurer</i> - {{ 'treasurer@csc.cs.rit.edu'|obfuscate_mailto }}</p>
 		<p>
 			I'm a third year Software Engineering major interested in puzzles, games, data structures and algorithms!
 		</p>
