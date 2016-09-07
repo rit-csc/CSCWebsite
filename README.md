@@ -14,12 +14,6 @@ Set up the database:
 
     python3 manage.py migrate
 
-Once you've done that, uncomment the following lines in `settings.py`:
-
-    #AUTH_USER_MODEL = 'member.Member'
-    ...
-    #   'member',
-
 Then run the server using the following command:
 
     python3 manage.py runserver
