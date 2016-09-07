@@ -10,6 +10,10 @@ To clone the repo run the following command:
 
     git clone https://github.com/rit-csc/CSCWebsite
 
+Set up the database:
+
+    python3 manage.py migrate
+
 Once you've done that, uncomment the following lines in `settings.py`:
 
     #AUTH_USER_MODEL = 'member.Member'
@@ -23,9 +27,9 @@ Then run the server using the following command:
 ##### Dependencies & Frameworks
 
 * [Python 3.3 or higher](https://www.python.org/download/releases/3.3.0/)
-* [Django](https://www.djangoproject.com/) -- backend
+* [Django](https://www.djangoproject.com/) -- backend (version 1.8.6)
 
-    ```pip3 install django```
+    ```pip3 install Django==1.8.6```
 
 * [icalendar](http://icalendar.readthedocs.org/en/latest/) -- for calendar stuff
 
@@ -34,6 +38,10 @@ Then run the server using the following command:
 * [dateutil](https://labix.org/python-dateutil) -- for more calendar stuff, specifically repeat events
 
     ```pip3 install python-dateutil```
+
+* [django-email-obfuscator](https://github.com/morninj/django-email-obfuscator) -- to obfuscate emails from scrapers
+
+    ```pip3 install django-email-obfuscator```
 
 ##### Meat & Potatoes (Creating Pages)
 
