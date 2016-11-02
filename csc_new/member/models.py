@@ -12,7 +12,8 @@ class MemberType(models.Model):
 	def __str__(self):
 		return self.typeName + " Member"
 
-class Member(models.Model):
+class Member(AbstractUser):
+	objects = UserManager()
 	username = models.CharField(max_length=10, required=True)
 	name = models.CharField(max_length=10, required=True)
 	bio = models.CharField(max_length=10, required=False, default="")
@@ -51,8 +52,8 @@ class Shift(models.Model):
 #		return self.committee_set.all()
 #	committees = property(_committees_member_of)
 
-	# Events for which this Member has an EventLogin.
-	# (Use the ManyToMany relationship to return all related events.)
+#	# Events for which this Member has an EventLogin.
+#	# (Use the ManyToMany relationship to return all related events.)
 #	def _events_attended(self):
 #		return self.event_set.all()
 #	events = property(_events_attended)

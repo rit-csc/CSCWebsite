@@ -14,9 +14,9 @@ urlpatterns = [
     # Examples:
 	url(r'^$', views.index),
     url(r'^admin', include(admin.site.urls)),
-
+	
 	# Custom stuff GOES HERE
-
+	url(r'^member/?', include('member.urls')),
     # Note that "/?" at the end means a trailing
     # slash at the end of the URL can be included
     # but is not required.
