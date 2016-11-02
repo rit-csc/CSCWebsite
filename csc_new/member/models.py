@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, UserManager
+#from django.contrib.auth.models import AbstractUser, UserManager
 
 # MemberType - defines member types
 # 	typeName - the human-readable name of the type
@@ -12,32 +12,50 @@ class MemberType(models.Model):
 	def __str__(self):
 		return self.typeName + " Member"
 
+class Member(models.Model):
+	username = models.CharField(max_length=10, required=True)
+	name = models.CharField(max_length=10, required=True)
+	bio = models.CharField(max_length=10, required=False, default="")
+
+class Tutor(models.Model):
+	member = models.ForeignKey(Member, on_delete=models.CASCADE)
+	
+class Officer(models.Model):
+	member = models.ForeignKey(Member, on_delete=models.CASCADE)
+	position = models.CharField(max_length=10, required=True)
+	
+class Shift(models.Model):
+	member = models.ForeignKey(Member, on_delete=models.CASCADE)
+	start = models.TimeField(required=True)
+	end = models.TimeField(requried=True)
+	day = models.DateField(required=True)
+	
 # Member - defines a member
 #	user - holds name, username(dce), email
 #	type - the member type
-class Member(AbstractUser):
-	REQUIRED_FIELDS = ['memberType', 'email']
-
-	# Default User Manager being attached
-	objects = UserManager()
-
-	# memberType = models.ForeignKey(MemberType)
-	memberType = models.CharField(max_length=20, default="Base")
-
-	# def __str__(self):
-	# 	return self.memberType + "Member No. " + self.pk
-
-	# Committees for which this Member has a CommitteeMembership.
-	# (Use the ManyToMany relationship to return all related committees.)
-	def _committees_member_of(self):
-		return self.committee_set.all()
-	committees = property(_committees_member_of)
+#class Member(AbstractUser):
+#	REQUIRED_FIELDS = ['memberType', 'email']
+#
+#	# Default User Manager being attached
+#	objects = UserManager()
+#
+#	# memberType = models.ForeignKey(MemberType)
+#	memberType = models.CharField(max_length=20, default="Base")
+#
+#	# def __str__(self):
+#	# 	return self.memberType + "Member No. " + self.pk
+#
+#	# Committees for which this Member has a CommitteeMembership.
+#	# (Use the ManyToMany relationship to return all related committees.)
+#	def _committees_member_of(self):
+#		return self.committee_set.all()
+#	committees = property(_committees_member_of)
 
 	# Events for which this Member has an EventLogin.
 	# (Use the ManyToMany relationship to return all related events.)
-	def _events_attended(self):
-		return self.event_set.all()
-	events = property(_events_attended)
+#	def _events_attended(self):
+#		return self.event_set.all()
+#	events = property(_events_attended)
 
 # Event - defines an event
 #	name - name of the event
