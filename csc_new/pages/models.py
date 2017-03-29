@@ -138,5 +138,5 @@ class Attendance(models.Model):
     email = models.EmailField()
     
     def __str__(self):
-       return self.email.__str__() + " : " + self.email.__str__()
+       return self.time.__str__() + " : " + self.email.__str__()
 
