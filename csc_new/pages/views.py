@@ -93,9 +93,21 @@ def signin(request):
         form = SignInForm(request.POST)
         
         if form.is_valid():
-            
+        
+            email_addr = form.cleaned_data['email']
+
+            try:
+                entry = Attendance(email=email_addr)
+                entry.save()
+            except ValidationError:
+                return render(request, 'pages/signup.html', {
+                    'form':form,
+                    'MEDIA_URL':settings.MEDIA_URL,
+                    'img_list':Photo.objects.values_list('src', flat=True),
+                    'error':"Invalid Email Address <br/>"
+                })
+
             if form.cleaned_data['mailinglist'] == 'yes':
-                email_addr = form.cleaned_data['email']
                 #add to mailman
                 os.system("echo \"%s\" | /usr/lib/mailman/bin/add_members -r - announcements" % email_addr)
 
@@ -107,6 +119,7 @@ def signin(request):
     return render(request, 'pages/signup.html', {
         'form':form,
         'MEDIA_URL':settings.MEDIA_URL,
-        'img_list':Photo.objects.values_list('src', flat=True)
+        'img_list':Photo.objects.values_list('src', flat=True),
+        'error':""
     })
 
