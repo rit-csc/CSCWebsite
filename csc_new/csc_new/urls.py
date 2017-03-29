@@ -23,6 +23,7 @@ urlpatterns = [
 	url(r'^resources/?$', views.resources),
 	url(r'^pictures/?$', views.pictures),
 	url(r'^projects/?$', views.projects),
+        url(r'^signin/?$', views.signin),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

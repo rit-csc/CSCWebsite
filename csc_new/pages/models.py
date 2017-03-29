@@ -133,3 +133,10 @@ class RenderableEvents(models.Model):
 
         icalFile.close()
 
+class Attendance(models.Model):
+    time = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField()
+    
+    def __str__(self):
+       return self.time.__str__() + " : " + self.email.__str__()
+

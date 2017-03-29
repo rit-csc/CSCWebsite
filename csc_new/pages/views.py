@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 
 import urllib
@@ -7,6 +7,8 @@ import json
 
 from pages.models import *
 from csc_new import settings
+
+from .forms import SignInForm
 
 # Create your views here.
 
@@ -85,3 +87,39 @@ def projects(request):
         return render_to_response(template, {"success":False,
                                                 'MEDIA_URL':settings.MEDIA_URL,
                                                 'img_list':Photo.objects.values_list('src', flat=True)})
+
+def signin(request):
+    if request.method == "POST":
+        form = SignInForm(request.POST)
+        
+        if form.is_valid():
+        
+            email_addr = form.cleaned_data['email']
+
+            try:
+                entry = Attendance(email=email_addr)
+                entry.save()
+            except ValidationError:
+                return render(request, 'pages/signup.html', {
+                    'form':form,
+                    'MEDIA_URL':settings.MEDIA_URL,
+                    'img_list':Photo.objects.values_list('src', flat=True),
+                    'error':"Invalid Email Address <br/>"
+                })
+
+            if form.cleaned_data['mailinglist'] == 'yes':
+                #add to mailman
+                os.system("echo \"%s\" | /usr/lib/mailman/bin/add_members -r - announcements" % email_addr)
+
+            return HttpResponseRedirect('/thanks');
+
+    else:
+        form = SignInForm()
+
+    return render(request, 'pages/signup.html', {
+        'form':form,
+        'MEDIA_URL':settings.MEDIA_URL,
+        'img_list':Photo.objects.values_list('src', flat=True),
+        'error':""
+    })
+

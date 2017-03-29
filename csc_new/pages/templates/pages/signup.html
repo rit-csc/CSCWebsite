@@ -1,0 +1,29 @@
+{% extends "csc_new/base.html" %}
+
+{% block head %}
+{% load static %}
+<title>Sign In - Computer Science Community at RIT</title>
+<style>
+ul {list-style-type: none;}
+</style>
+{% endblock %}
+
+{% block title %}
+Sign in to an event or sign up for the mailing list!
+{% endblock %}
+
+{% block content %}
+
+<h2>Sign In/Sign Up</h2>
+
+{{error}}
+
+
+<form action="/signin" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit"/>
+</form>
+
+{% endblock %}
+
